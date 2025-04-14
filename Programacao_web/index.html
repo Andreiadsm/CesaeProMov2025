@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Andreia Guedes">
-  <meta name="description" content="Currículo, skills e experiência como e-commerce e digital marketing manager">
-  <meta name="keywords" content="ecommerce, marketing digital, Currículo, experiência profissional">
-  <title>Website de Andreia Guedes</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Andreia Guedes" />
+  <meta name="description" content="Currículo, skills e experiência como e-commerce e digital marketing manager" />
+  <meta name="keywords" content="ecommerce, marketing digital, Currículo, experiência profissional" />
+  <title>Portfólio | Andreia Guedes</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul class="menu-principal">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      
+      <li class="dropdown">
+        <a href="#experiencia">Experiência ▾</a>
+        <ul class="submenu">
+          <li><a href="salsa.html" target="_blank">Salsa Jeans</a></li>
+          <li><a href="playup.html" target="_blank">Play Up</a></li>
+          <li><a href="jorgeoculista.html" target="_blank">Jorge Oculista</a></li>
+        </ul>
+      </li>
+  
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>  
 
-  <!-- Foto fixa à direita -->
+  <!-- Foto lateral -->
   <div class="foto-fixa-direita">
-    <img src="Imagens/Andreia Guedes foto.jpg" alt="Foto de Andreia Guedes">
+    <img src="Imagens/Andreia Guedes foto.jpg" alt="Foto de Andreia Guedes" />
   </div>
 
   <main>
-    <section>
+    <section id="sobre" class="secao">
       <h1>Acerca de mim</h1>
       <p>Tenho 15 anos de experiência profissional em vendas <strong>B2B</strong> e <strong>B2C</strong>, <strong>comércio eletrónico</strong>, <strong>marketplaces</strong> e <strong>marketing digital</strong>.</p>
       <p>Domino 3 idiomas: português, inglês e espanhol. Trabalhei também com o mercado francês.</p>
@@ -25,29 +44,33 @@
       <a href="https://linkedin.com/in/Andreia-Martins-Guedes" target="_blank">Acesso LinkedIn</a>
     </section>
 
-    <section id="hobbies">
-      <h2>Hobbies</h2>
-      <ul>
-        <li>Ler</li>
-        <li>Nadar</li>
-        <li>Correr</li>
-        <li>Fazer velas</li>
-        <li>Atividades com os filhotes</li>
-      </ul>
-    </section>
-
-    <section id="formacao">
+    <section id="formacao" class="secao">
       <h2>Formação</h2>
-      <ul style="list-style-type:circle;">
-        <li>Licenciatura em Línguas e Relações Empresariais - Universidade de Aveiro</li>
-        <li>Chinês Tradicional I e II - Escola Internacional de Taichung</li>
-        <li>Curso Intensivo de Marketing Digital - Factory Braga</li>
-        <li>Gestão de Projetos Digitais - Edit</li>
-        <li>Software Developer - Cesae Digital (em curso)</li>
-      </ul>
+      <div class="formacao-flex">
+        <div class="formacao-linha">
+          <div class="formacao-curso">Licenciatura em Línguas e Relações Empresariais</div>
+          <div class="formacao-local">Universidade de Aveiro</div>
+        </div>
+        <div class="formacao-linha">
+          <div class="formacao-curso">Chinês Tradicional I e II</div>
+          <div class="formacao-local">Escola Internacional de Taichung</div>
+        </div>
+        <div class="formacao-linha">
+          <div class="formacao-curso">Curso Intensivo de Marketing Digital</div>
+          <div class="formacao-local">Factory Braga</div>
+        </div>
+        <div class="formacao-linha">
+          <div class="formacao-curso">Gestão de Projetos Digitais</div>
+          <div class="formacao-local">Edit</div>
+        </div>
+        <div class="formacao-linha">
+          <div class="formacao-curso">Software Developer</div>
+          <div class="formacao-local">Cesae Digital (em curso)</div>
+        </div>
+      </div>
     </section>
 
-    <section id="experiencia">
+    <section id="experiencia" class="secao">
       <h2>Experiência Profissional</h2>
       <div class="tabela-wrapper">
         <table class="tabela-experiencia">
@@ -56,40 +79,45 @@
             <th>Data entrada e saída</th>
           </tr>
           <tr>
-            <td>Salsa Jeans (IVN SA)</td>
+            <td><a href="salsa.html" target="_blank">Salsa Jeans (IVN SA)</a></td>
             <td>05/2010 - 06/2018</td>
           </tr>
           <tr>
-            <td>Play Up (Etfor SA)</td>
+          <td><a href="playup.html" target="_blank">Play Up (Etfor SA)</a></td>
             <td>07/2018 - 04/2022</td>
           </tr>
           <tr>
-            <td>Grupo Jorge Oculista</td>
+            <td><a href="jorgeoculista.html" target="_blank">Grupo Jorge Oculista</a></td>
             <td>05/2022 - 01/2025</td>
           </tr>
         </table>
       </div>
     </section>
-
-    <section id="contato">
+    
+    <section id="contato" class="secao">
       <h2>Contato</h2>
       <p>Para entrar em contato, preencha o formulário abaixo:</p>
+    
       <form class="formulario" action="processa.php" method="POST">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" name="telefone">
-
-        <label for="comment">Comentário:</label>
-        <textarea id="comment" name="comment" rows="4"></textarea>
-
-        <input type="submit" value="Enviar">
-      </form>
-    </section>
+        <div class="form-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+    
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+    
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone">
+        </div>
+    
+        <div class="form-group">
+          <label for="comment">Comentário</label>
+          <textarea id="comment" name="comment" rows="5"></textarea>
+        </div>    
   </main>
 </body>
 </html>

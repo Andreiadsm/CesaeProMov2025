@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Experiência no Grupo Jorge Oculista</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="secao">
+    <h1>Grupo Jorge Oculista</h1>
+    <p><strong>Período:</strong> Maio 2022 - Janeiro 2025</p>
+
+    <h2>Funções e Conquistas</h2>
+    <ul>
+      <li>Direção de marketing com foco em marketing digital e e-commerce.</li>
+      <li>Recrutamento e formação da equipa de apoio ao cliente e marketing/e-commerce.</li>
+      <li>Atualização e otimização contínua da loja online do grupo.</li>
+      <li>Responsável por estratégias de:
+        <ul>
+          <li>Email marketing e SMS marketing.</li>
+          <li>Planeamento e execução de calendário de redes sociais in-house.</li>
+          <li> Reports mensais à direção
+        </ul>
+      </li>
+      <li>Gestão da relação com a agência Wanatop para campanhas Google e Meta Ads.</li>
+    </ul>
+
+    <a href="index.html">← Voltar ao portfólio</a>
+  </main>
+</body>
+</html>
