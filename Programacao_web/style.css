@@ -1,0 +1,139 @@
+/* Reset base */
+body {
+  background-color: #d4edf5;
+  margin: 0 270px 0 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #000;
+  line-height: 1.6;
+}
+
+/* Foto fixa */
+.foto-fixa-direita {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 50vh;
+  background-color: #e0f0f8;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.foto-fixa-direita img {
+  max-width: 100%;
+  max-height: 90%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Cabeçalhos */
+h1, h2 {
+  color: #333;
+  margin-top: 30px;
+}
+
+/* Links */
+a:link    { color: red; }
+a:visited { color: green; }
+a:hover   { color: hotpink; }
+a:active  { color: blue; }
+
+/* Listas */
+ul {
+  padding-left: 20px;
+}
+
+/* Formulário */
+.formulario {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color:  #d4edf5;
+  border: 2px solid  #d4edf5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="tel"],
+.formulario textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.formulario input[type="submit"] {
+  background-color: #999;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formulario input[type="submit"]:hover {
+  background-color: #458ea7;
+  border: 2px solid black
+}
+
+/* Tabela */
+.tabela-wrapper {
+  width: 50%;
+  overflow-x: auto;
+}
+
+table {
+  width: 50%;
+  align-items: left;
+  margin: auto;
+  border: 1px solid;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid;
+}
+
+/* Responsividade */
+@media (max-width: 768px) { 
+  .foto-fixa-direita {
+    display: none;
+  }
+
+  body {
+    margin-right: 20px;
+    overflow-x: hidden;
+  }
+
+  table {
+    min-width: 400px;
+    max-width: 700px;
+}
+
+@media (max-width: 600px) {
+  .formulario {
+    padding: 15px;
+  }
+
+  .formulario input[type="submit"] {
+    width: 100%;
+  }
+}
+}
