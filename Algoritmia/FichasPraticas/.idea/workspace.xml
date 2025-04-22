@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FichasPraticas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex04.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex08.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../teste.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/FichaPratica01/Ex07.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2w4vhFUwQkraXFurL2RSqa4pdXO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sw16\Documents\GitHub\CesaeProMov2025\Algoritmia\FichasPraticas\src\FichaPratica01" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="" />
+      <created>1745313778384</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745313778384</updated>
+    </task>
+    <servers />
+  </component>
+</project>
