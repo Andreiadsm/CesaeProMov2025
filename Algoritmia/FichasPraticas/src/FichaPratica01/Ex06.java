@@ -13,11 +13,11 @@ public class Ex06 {
 
         //Ler valor1
         System.out.print("Insira um valor: ");
-        int valor1= input.nextInt();
+        valor1= input.nextInt();
 
         //Ler valor2
         System.out.print("Insira um valor: ");
-        int valor2= input.nextInt();
+        valor2= input.nextInt();
 
         //Permuta
         valor1 = valor1 + valor2;

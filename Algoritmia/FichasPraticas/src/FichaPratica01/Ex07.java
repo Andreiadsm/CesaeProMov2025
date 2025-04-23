@@ -1,6 +1,5 @@
 package FichaPratica01;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Ex07 {

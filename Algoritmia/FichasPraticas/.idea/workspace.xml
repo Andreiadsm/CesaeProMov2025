@@ -5,19 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FichasPraticas.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex07.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex08.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../teste.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex01_v2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex04.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex08.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex09.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex10.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex11.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex12.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica02/Ex13.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica01/Ex06.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica01/Ex06.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica01/Ex07.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica01/Ex07.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FichaPratica01/Ex06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FichaPratica01/Ex07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex07.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FichaPratica01/Ex08.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica01/Ex08.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +60,34 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sw16\Documents\GitHub\CesaeProMov2025\Algoritmia\FichasPraticas\src\FichaPratica01" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Ex_04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FichaPratica02.Ex_04" />
+      <module name="FichasPraticas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FichaPratica02.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Ex_04" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -69,5 +99,16 @@
       <updated>1745313778384</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FichasPraticas$Ex12.ic" NAME="Ex12 Coverage Results" MODIFIED="1745421092819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>FichaPratica02.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/FichasPraticas$Ex13.ic" NAME="Ex13 Coverage Results" MODIFIED="1745422985618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>FichaPratica02.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/FichasPraticas$Ex08.ic" NAME="Ex08 Coverage Results" MODIFIED="1745411631953" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>FichaPratica02.*</FILTER>
+    </SUITE>
   </component>
 </project>
