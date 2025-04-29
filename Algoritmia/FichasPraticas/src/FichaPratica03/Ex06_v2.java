@@ -2,24 +2,20 @@ package FichaPratica03;
 
 import java.util.Scanner;
 
-public class Ex08 {
+public class Ex06_v2 {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
 
         // Declarar as variáveis
-        int inicio =5, numeroLido, salto=1;
+        int inicio, limite, salto = 1;
 
         // Ler valores
+        System.out.print("Início do intervalo: ");
+        inicio = input.nextInt();
+
         System.out.print("Limite do intervalo: ");
-        numeroLido = input.nextInt();
-
-        while (inicio < numeroLido) {
-            System.out.println(inicio);
-            inicio = inicio + salto;
-        }
-
-        inicio=numeroLido+1;
-        int limite =numeroLido+5;
+        limite = input.nextInt();
 
         while (inicio <= limite) {
             System.out.println(inicio);
