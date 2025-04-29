@@ -11,17 +11,17 @@ public class Ex13 {
         int horas, minutos;
 
         // Ler horas e minutos
-        System.out.println("Introduza horas: "); //lê horas
-        horas = input.nextInt(); //Lê minutos
+        System.out.println("Introduza horas (0-24): "); //lê horas
+        horas = input.nextInt();
 
-        System.out.println("Introduza minutos: "); //lê minutos
+        System.out.println("Introduza minutos (0-59): "); //lê minutos
         minutos = input.nextInt();
 
-        //Apresentar horas e minutos no sistema de 12h
-        if (horas <= 12) {
+        //Converter para formato de 12h
+        if (horas <= 12) { //manhã
             System.out.println(horas + ":" + minutos + "am");
-        }
-        else { //horas maior que 12
+        } else {// tarde
+            horas = horas -12;
             System.out.println(horas + ":" + minutos + "pm");
         }
     }
