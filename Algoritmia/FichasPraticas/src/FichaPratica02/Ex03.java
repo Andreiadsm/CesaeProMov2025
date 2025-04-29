@@ -11,7 +11,7 @@ public class Ex03 {
         double salario, taxa = 0;
 
         //Ler salário
-        System.out.println("Insira o seu salário: ");
+        System.out.println("Insira o seu salário anual: ");
         salario = input.nextDouble();
 
         //Condição
