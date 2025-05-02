@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex09_v2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex09_v3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex09_v4.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex14.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica01/Ex06.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica01/Ex06.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica02/Ex03.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica02/Ex03.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica03/Ex13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica03/Ex13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica03/Ex12.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex12.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica03/Ex13.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica03/Ex13.java" afterDir="false" />
-    </list>
+    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
