@@ -2,14 +2,12 @@ package FichaPratica05;
 
 import java.util.Scanner;
 
-public class Ex07 {
+public class Ex07_correcao {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        //declarar variáveis
-        int [] vetor = new int[10];
+        int [] vetor = new int[5];
         int maior = vetor[0];
-        int maiorPar = 2;
 
         //ler vetor
         for(int i=0; i<10; i++) {
@@ -26,16 +24,16 @@ public class Ex07 {
 
         //Encontrar e imprimir o numero maior
         for (int i=0; i< vetor.length; i++) {
-            if (vetor[i]> maior) {
+            if (vetor[i] > maior && vetor[i] % 2 == 0) {
                 maior = vetor[i];
             }
         }
 
         //Mostrar numero maior par
-        if (maior % 2== 0) {
-            System.out.println("Maior elemento é par " + maior);
+        if (maior % 2 == 0) {
+            System.out.println("Maior elemento  par é: " + maior);
         } else {
-            System.out.println("Maior elemento é impar: " + maior);
+            System.out.println("Não há pares");
         }
     }
 }

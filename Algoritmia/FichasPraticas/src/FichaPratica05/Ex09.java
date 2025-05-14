@@ -2,11 +2,12 @@ package FichaPratica05;
 
 import java.util.Scanner;
 
-public class Ex08 {
+public class Ex09 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
         int[][] matriz = new int[3][3]; // Declara uma matriz 3x3
+        int somaElementos= 0;
 
         // Leitura da matriz
 
@@ -20,13 +21,12 @@ public class Ex08 {
 
         System.out.println("-------------------------------------");
 
-        //imprimir a matriz
+        //Somar os elementos da matriz
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-                System.out.print(matriz[linha][coluna] + "\t");
+               somaElementos += matriz[linha][coluna];
             }
-            System.out.println();
         }
+        System.out.println("Soma dos elementos: " + somaElementos);
     }
 }
-
