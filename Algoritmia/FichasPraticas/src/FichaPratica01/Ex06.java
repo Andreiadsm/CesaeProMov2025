@@ -19,12 +19,16 @@ public class Ex06 {
         System.out.print("Insira um valor: ");
         valor2= input.nextInt();
 
+        //Apresentar
+        System.out.println("Valor1: " + valor1);
+        System.out.println("valor2: " + valor2);
+
         //Permuta
         valor1 = valor1 + valor2;
         valor2 = valor1 - valor2;
         valor1 = valor1 - valor2;
 
-        //Permutar
+        //Apresentar
         System.out.println("após a troca: " );
         System.out.println("valor1: " + valor1);
         System.out.println("valor2: " + valor2);

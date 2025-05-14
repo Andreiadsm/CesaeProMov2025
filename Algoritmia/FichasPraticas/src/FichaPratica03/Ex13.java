@@ -6,23 +6,22 @@ public class Ex13 {
     public static void main(String[] args) {
         Scanner input = new Scanner (System.in);
 
-        //variaveis
+        // Declarar as variáveis
+        int inicio, limite;
 
-        int numeroInicial; //representa inicio do intervalo
-        int numeroFinal; //representa fim do intervalo
+        // Ler valores
+        System.out.print("numero inicial: ");
+        inicio = input.nextInt();
+
+        System.out.print("numero final: ");
+        limite = input.nextInt();
 
 
-        //ler numeros
-        System.out.println("Insira o primeiro numero: ");
-        numeroInicial = input.nextInt();
-        System.out.println("Insira o segundo numero: ");
-        numeroFinal = input.nextInt();
-
-        while (numeroInicial<=numeroFinal) {
-            if (numeroInicial% 5 == 0) {
-                System.out.println(numeroInicial);
+        while (inicio < limite) {
+            if (inicio%5 ==0) {
+                System.out.println(inicio);
             }
-            numeroInicial = numeroInicial + 1;
+            inicio = inicio + 1; //inicio++
         }
     }
 }

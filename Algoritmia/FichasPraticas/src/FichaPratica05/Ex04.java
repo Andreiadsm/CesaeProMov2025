@@ -4,27 +4,33 @@ import java.util.Scanner;
 
 public class Ex04 {
     public static void main(String[] args) {
-
-        // Import do Scanner
         Scanner input = new Scanner(System.in);
 
-        // Declarar variáveis
-        int[] vetor = new int[5];
+        //declarar variáveis
+        int [] vetor = new int[10];
+        int menor = vetor[0];
 
-        // Ler vetor
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print("Insira no vetor[" + i + "]: ");
+        //ler vetor
+        for(int i=0; i<10; i++) {
+            System.out.print("Insira no vetor[" + i +"]: ");
             vetor[i] = input.nextInt();
         }
 
-        int menorElemento = vetor[0];
+        System.out.println("---------------------------------");
 
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] < menorElemento) {
-                menorElemento = vetor[i];
+        //imprimir vetor
+        for(int i=0; i<10; i++) {
+            System.out.println("vetor[" + i +"]:" + vetor[i]);
+        }
+
+        //Encontrar e imprimir o numero memor
+        for (int i=0; i< vetor.length; i++) {
+            if (vetor[i]< menor) {
+                menor = vetor[i];
             }
         }
 
-        System.out.println("Menor: " + menorElemento);
+        //Mostrar numero maior
+        System.out.println("Menor elemento é: " + menor);
     }
 }

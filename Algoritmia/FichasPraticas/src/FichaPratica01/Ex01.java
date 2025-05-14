@@ -23,5 +23,7 @@ public class Ex01 {
 
         //Apresentar resultado
         System.out.println("Soma" + soma);
+        // Close the scanner
+        input.close();
     }
 }

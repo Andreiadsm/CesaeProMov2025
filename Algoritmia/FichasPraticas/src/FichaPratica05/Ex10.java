@@ -4,39 +4,43 @@ import java.util.Scanner;
 
 public class Ex10 {
     public static void main(String[] args) {
-
-        // Import do Scanner
         Scanner input = new Scanner(System.in);
 
-        // Declarar variáveis
-        int[][] matriz = new int[3][3];
-        int numeroPesquisa, contador = 0;
+        int[][] matriz = new int[3][5]; // Declara uma matriz 3x5
 
-        // Ler matriz
+        // Leitura da matriz
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-                System.out.print("Insira na matriz[" + linha + "][" + coluna + "]: ");
+                System.out.print("Insira um numero na matriz[" + linha + "][" + coluna + "]: ");
                 matriz[linha][coluna] = input.nextInt();
             }
         }
 
-        System.out.println("_____________________________________");
+        System.out.println("-------------------------------------");
 
-        // Ler numero a pesquisar
-        System.out.print("Número a pesquisar: ");
-        numeroPesquisa = input.nextInt();
-
-        // Procurar o numero a pesquisar
+        //imprimir a matriz
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-                if (matriz[linha][coluna] == numeroPesquisa) {
-                    contador++;
+                System.out.print(matriz[linha][coluna] + "\t");
+            }
+            System.out.println();
+        }
+
+        //pedir numero ao utilizador para depois pesquisar
+        System.out.print("Insira um numero para pesquisar: ");
+        int numero = input.nextInt();
+
+        //declarar contador
+        int cont = 0;
+
+        //contar numeros na matriz
+        for (int linha = 0; linha < matriz.length; linha++) {
+            for (int coluna = 0; coluna < matriz[0].length; coluna++) {
+                if (matriz[linha][coluna] == numero) {
+                    cont++;
                 }
             }
         }
-
-        System.out.println("O número " + numeroPesquisa + " aparece " + contador + " vezes na matriz.");
-
-
+        System.out.println("Há " + cont + " posições na matriz com o número " + numero);
     }
 }

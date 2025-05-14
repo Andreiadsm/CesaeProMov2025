@@ -4,55 +4,41 @@ import java.util.Scanner;
 
 public class Ex11 {
     public static void main(String[] args) {
-
-        // Import do Scanner
         Scanner input = new Scanner(System.in);
 
-        // Declarar variáveis
-        int[][] matriz = new int[3][3];
+        int[][] matriz = new int[3][3]; // Declara uma matriz 3x3
 
-        // Ler matriz
+        // Leitura da matriz
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-                System.out.print("Insira na matriz[" + linha + "][" + coluna + "]: ");
+                System.out.print("Insira um numero na matriz[" + linha + "][" + coluna + "]: ");
                 matriz[linha][coluna] = input.nextInt();
             }
         }
+        int maior = matriz[0][0];
+        int menor = matriz[0][0];
 
-        System.out.println("_____________________________________");
-
-        int maiorElemento = matriz[0][0];
-        int menorElemento = matriz[0][0];
-
-
+        //Encontrar e imprimir o numero maior
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-
-                // Percebemos se o elemento atual é maior
-                if (matriz[linha][coluna] > maiorElemento) {
-                    maiorElemento = matriz[linha][coluna];
+                if (matriz[linha][coluna] > maior) {
+                    maior = matriz[linha][coluna];
                 }
-
-                // Percebemos se o elemento atual é menor
-                if (matriz[linha][coluna] < menorElemento) {
-                    menorElemento = matriz[linha][coluna];
+                if (matriz[linha][coluna] < menor) {
+                    menor = matriz[linha][coluna];
                 }
-
             }
         }
 
-        System.out.println("Menor: " + menorElemento);
-        System.out.println("Maior: " + maiorElemento);
+        //Mostrar numero maior
+        System.out.println("Maior elemento é: " + maior "e menor elemento é: " + menor);
 
-
-        System.out.println("_____________________________________");
-
-        // Imprimir a matriz
+        //imprimir a matriz
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
-                System.out.print(matriz[linha][coluna]+"\t");
+                System.out.print(matriz[linha][coluna] + "\t");
             }
             System.out.println();
         }
     }
-}
+

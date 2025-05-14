@@ -4,33 +4,32 @@ import java.util.Scanner;
 
 public class Ex06 {
     public static void main(String[] args) {
-
-        // Import do Scanner
         Scanner input = new Scanner(System.in);
 
-        // Declarar variáveis
-        int[] vetor = new int[5];
-        boolean crescente = true;
+        int [] vetor = new int[10];
 
-        // Ler vetor
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print("Insira no vetor[" + i + "]: ");
+        //ler vetor
+        for(int i=0; i<10; i++) {
+            System.out.print("Insira no vetor[" + i +"]: ");
             vetor[i] = input.nextInt();
         }
 
-        // Perceber se o vetor é crescente
-        for (int i = 1; i < vetor.length; i++) {
+        System.out.println("---------------------------------");
 
-            if (vetor[i] <= vetor[i - 1]) {
-                crescente = false;
+        // Ordenar vetor com bubble sort
+        for (int i = 0; i < vetor.length - 1; i++) {
+            for (int j = 0; j < vetor.length - 1 - i; j++) {
+                if (vetor[j] > vetor[j + 1]) {
+                    int temp = vetor[j];
+                    vetor[j] = vetor[j + 1];
+                    vetor[j + 1] = temp;
+                }
             }
         }
 
-        if (crescente) {
-            System.out.println("Crescente");
-        } else {
-            System.out.println("Não crescente");
+        System.out.println("Vetor em ordem crescente:");
+        for (int i = 0; i < vetor.length; i++) {
+            System.out.println("vetor[" + i + "]: " + vetor[i]);
         }
-
     }
 }

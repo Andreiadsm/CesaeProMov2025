@@ -4,41 +4,38 @@ import java.util.Scanner;
 
 public class Ex07 {
     public static void main(String[] args) {
-
-        // Import do Scanner
         Scanner input = new Scanner(System.in);
 
-        // Declarar variáveis
-        int[] vetor = new int[5];
+        //declarar variáveis
+        int [] vetor = new int[10];
+        int maior = vetor[0];
+        int maiorPar = 2;
 
-        // Ler vetor
-        for (int i = 0; i < vetor.length; i++) {
-            System.out.print("Insira no vetor[" + i + "]: ");
+        //ler vetor
+        for(int i=0; i<10; i++) {
+            System.out.print("Insira no vetor[" + i +"]: ");
             vetor[i] = input.nextInt();
         }
 
-        int maiorElemento = -1;
+        System.out.println("---------------------------------");
 
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] % 2 == 0) {
+        //imprimir vetor
+        for(int i=0; i<10; i++) {
+            System.out.println("vetor[" + i +"]:" + vetor[i]);
+        }
 
-                if (maiorElemento % 2 != 0) {
-                    maiorElemento = vetor[i];
-                }
-
-                if (vetor[i] > maiorElemento) {
-                    maiorElemento = vetor[i];
-                }
-
+        //Encontrar e imprimir o numero maior
+        for (int i=0; i< vetor.length; i++) {
+            if (vetor[i]> maior) {
+                maior = vetor[i];
             }
         }
 
-        if (maiorElemento % 2 == 0) {
-            System.out.println("Maior Par: " + maiorElemento);
+        //Mostrar numero maior par
+        if (maior % 2== 0) {
+            System.out.println("Maior elemento é par " + maior);
         } else {
-            System.out.println("Não há pares");
+            System.out.println("Maior elemento é impar: " + maior);
         }
-
-
     }
 }
