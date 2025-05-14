@@ -17,13 +17,15 @@ public class Ex09 {
         numero = input.nextInt();
 
         while (numero != -1) {
-            System.out.println("Insira um número: ");
-            soma = soma + numero;
-            quantidade = quantidade + 1;
-            numero++;
+            soma = soma + numero; // atualizar a soma
+            quantidade = quantidade + 1; // atualizar quantidade
+            System.out.print("introduza um número: "); // ler numero seguinte
+            numero= input.nextInt();
         }
-            if (numero < 0) {
-                System.out.println("Media: " + soma / quantidade);
+
+            if (quantidade > 0) {
+                double media = (double) soma / quantidade;
+                System.out.println("Média: " + media);
             } else {
                 System.out.println("numero inválido");
             }
