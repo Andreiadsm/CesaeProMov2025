@@ -62,7 +62,11 @@ public class Ex03 {
             return false;
         }
     }
-
+    /**
+     * Função que determina se um número é triangular ou não
+     * @param num Número a analisar
+     * @return true se triangular || false se negativo
+     */
     public static boolean triangular (int num) {
         int triangulares =0;
 
