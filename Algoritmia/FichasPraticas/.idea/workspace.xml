@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Bibliotecas/Matematica.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Bibliotecas/Vetores.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Bibliotecas/Visuais.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica06/Demonstracao.java" afterDir="false" />
+    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="funcoes">
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex03.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex04.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica03/Ex09.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FichasPraticas/FichaPratica03/Ex09.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica05/Ex03_funcoes.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica05/Ex11.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica05/Ex11.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica06/DemonstracaoAula.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica06/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bibliotecas/Matematica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bibliotecas/Matematica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bibliotecas/Visuais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bibliotecas/Visuais.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +81,19 @@
       <option name="presentableId" value="Default" />
       <updated>1745313778384</updated>
     </task>
+    <task id="LOCAL-00001" summary="funcoes">
+      <created>1747385656574</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747385656574</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="funcoes" />
+    <option name="LAST_COMMIT_MESSAGE" value="funcoes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
