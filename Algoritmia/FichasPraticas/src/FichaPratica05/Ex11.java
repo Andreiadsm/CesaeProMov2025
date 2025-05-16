@@ -31,7 +31,7 @@ public class Ex11 {
         }
 
         //Mostrar numero maior
-        System.out.println("Maior elemento é: " + maior "e menor elemento é: " + menor);
+        System.out.println("Maior elemento é: " + maior + "e menor elemento é: " + menor);
 
         //imprimir a matriz
         for (int linha = 0; linha < matriz.length; linha++) {
@@ -41,4 +41,4 @@ public class Ex11 {
             System.out.println();
         }
     }
-
+}
