@@ -3,28 +3,28 @@ package FichaPratica06;
 import java.util.Scanner;
 
 import static Bibliotecas.Matematica.lerInteiroPositivo;
+
 import static FichaPratica06.Ex05.*;
 
 public class Ex06 {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
 
+        Scanner input = new Scanner(System.in);
         int opcao;
 
-        //Tamanho
-        System.out.println("------ Tamanho do Vetor --------");
+        // Tamanho
+        System.out.println("_____ Tamanho do Vetor _____");
         int tamanho = lerInteiroPositivo();
 
-        //preencher o vetor
-        System.out.println("Quantos itens vai ter o vetor");
-        int [] vetorUtilizador = lerVetorInteiros(tamanho);
+        // Preencher o vetor
+        int[] vetorUtilizador = lerVetorInteiros(tamanho);
+
 
         do {
             System.out.println("\n\n***** Programa de Análise de um Vetor *****");
-
             System.out.println("1. Maior Elemento");
             System.out.println("2. Menor Elemento");
-            System.out.println("3. Crescente ou não Crescente");
+            System.out.println("3. Crescente");
             System.out.println("0. Sair");
 
             System.out.print("Opção: ");
@@ -32,29 +32,34 @@ public class Ex06 {
 
             System.out.println();
 
-            switch (opcao) {
+            switch (opcao){
                 case 1: // Maior Elemento
-                    System.out.println("Maior elemento: " + maior(vetorUtilizador));
+                    System.out.println("Maior Elemento: "+ maiorElemento(vetorUtilizador));
                     break;
 
                 case 2: // Menor Elemento
-                    System.out.println("Menor elemento: " + menor(vetorUtilizador));
+                    System.out.println("Menor Elemento: "+ menorElemento(vetorUtilizador));
                     break;
 
-                case 3: // Crescente ou Não Crescente
+                case 3: // Crescente
 
-                    if(vetorCrescente(vetorUtilizador){
+                    if(vetorCrescente(vetorUtilizador)){
                         System.out.println("Crescente");
                     }else{
-                        System.out.println("Não Crescente");
+                        System.out.println("Não crescente");
                     }
+                    break;
+
+                case 0:
+                    System.out.println("Encerrar o programa...");
                     break;
 
                 default:
                     System.out.println("Opção Inválida!");
                     break;
             }
+
         } while (opcao != 0);
-        }
+
     }
 }
