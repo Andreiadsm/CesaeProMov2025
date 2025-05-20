@@ -11,22 +11,23 @@ public class Ex06 {
         Scanner in = new Scanner(ficheiro);
 
         int maior = 0;
-        String nome;
+        String nomeMaisVelho = "";
 
         while (in.hasNextLine()) {
             String linha = in.nextLine();
             String[] itensDaLinha = linha.split(",");
 
-            int idade = Integer.parseInt(itensDaLinha[1]);
-            String nomeMaior = (itensDaLinha[0]);
-            if (idade > maior && nome == nomeMaior) {
-                maior = idade;
-                nomeMaior = nome;
-            }
-            }
+            String nomeAtual = itensDaLinha[0].trim();
+            int idadeAtual = Integer.parseInt(itensDaLinha[1].trim());
 
-        System.out.println("Maior nome e Maior idade encontrada: " + nome + maior);
+            if (idadeAtual > maior) {
+                maior = idadeAtual;
+                nomeMaisVelho = nomeAtual;
+            }
         }
+
+        System.out.println("Pessoa mais velha: " + nomeMaisVelho + " (" + maior + " anos)");
+    }
 
     public static void main(String[] args) throws FileNotFoundException {
         lerNomesIdades("Ficheiros/exercicio_06.txt");
