@@ -17,12 +17,12 @@ public class Ex06 {
             String linha = in.nextLine();
             String[] itensDaLinha = linha.split(",");
 
-            String nomeAtual = itensDaLinha[0].trim();
-            int idadeAtual = Integer.parseInt(itensDaLinha[1].trim());
+            String nomeInicial = itensDaLinha[0];
+            int idadeInicial = Integer.parseInt(itensDaLinha[1]);
 
-            if (idadeAtual > maior) {
-                maior = idadeAtual;
-                nomeMaisVelho = nomeAtual;
+            if (idadeInicial > maior) {
+                maior = idadeInicial;
+                nomeMaisVelho = nomeInicial;
             }
         }
 
