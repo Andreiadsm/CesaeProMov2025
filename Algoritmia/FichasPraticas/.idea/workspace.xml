@@ -5,33 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="funcoes">
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_01_Alternativa01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_01_Alternativa02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_03_Alternativa01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_04.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_05_1999.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_05_31.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_06.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_07.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_08.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_09.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_10.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ficheiros/exercicio_11.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex08.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex05_correcao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex07_v2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex08.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex09.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TrabalhoPratico/TrabalhoPratico.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/VetoresMatrizes/Ex02.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica06/Ex05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex05.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FichaPratica06/Ex06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex06.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica06/Ex07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex07.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,14 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sw16\Documents\GitHub\CesaeProMov2025\Algoritmia\FichasPraticas\Ficheiros" />
@@ -82,6 +62,19 @@
   <component name="RunManager">
     <configuration name="Ex05" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FichaPratica07.Ex05" />
+      <module name="FichasPraticas" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="FichaPratica07.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Ex08" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FichaPratica07.Ex08" />
       <module name="FichasPraticas" />
       <extension name="coverage">
         <pattern>
@@ -109,6 +102,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Ex05" />
+        <item itemvalue="Application.Ex08" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1747409989365</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="funcoes">
+      <created>1747756191603</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747756191603</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

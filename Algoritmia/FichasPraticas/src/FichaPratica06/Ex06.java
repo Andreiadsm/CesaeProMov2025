@@ -19,7 +19,6 @@ public class Ex06 {
         // Preencher o vetor
         int[] vetorUtilizador = lerVetorInteiros(tamanho);
 
-
         do {
             System.out.println("\n\n***** Programa de Análise de um Vetor *****");
             System.out.println("1. Maior Elemento");
