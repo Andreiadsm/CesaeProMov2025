@@ -8,6 +8,7 @@ public class Funcoes {
 
     /**
      * Função que conta quantas linhas tem um ficheiro
+     *
      * @param caminho Caminho para o ficheiro
      * @return Número total de linhas
      * @throws FileNotFoundException Caso o ficheiro não seja encontrado
@@ -52,6 +53,7 @@ public class Funcoes {
 
     /**
      * Função que carrega os dados dos filmes para uma matriz mas ignora cabeçalho
+     *
      * @param caminho Caminho do ficheiro de filmes
      * @return Matriz com 8 colunas e uma linha por filme
      * @throws FileNotFoundException Caso o ficheiro não exista
@@ -150,7 +152,7 @@ public class Funcoes {
     }
 
     /**
-     * Função que imprime estúdios únicos (sem repetições)
+     * Função que imprime estúdios únicos (sem duplicados)
      */
     public static void imprimirEstudios(String[][] matriz) {
         System.out.println("Estúdios avaliados:");
@@ -159,8 +161,8 @@ public class Funcoes {
             String estudioAtual = matriz[i][5]; // Coluna 5 = estúdio
             boolean duplicado = false;
 
-            for (int j = 0; j < i; j++) {
-                if (matriz[j][5].equalsIgnoreCase(estudioAtual)) {
+            for (int anterior = 0; anterior < i; anterior++) {
+                if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
                     duplicado = true;
                     break;
                 }
@@ -169,6 +171,100 @@ public class Funcoes {
             if (!duplicado) {
                 System.out.println("- " + estudioAtual);
             }
+        }
+    }
+
+    /**
+     * Função que simula o registo de um novo utilizador
+     */
+    public static void registarUtilizador() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("\n--- Registar Utilizador ---");
+
+        System.out.print("Insira Nome: ");
+        String nome = input.nextLine();
+
+        System.out.print("Insira Contacto: ");
+        String contacto = input.nextLine();
+
+        System.out.print("Insira Email: ");
+        String email = input.nextLine();
+
+        System.out.println("\nUtilizador Inserido com Sucesso: " + nome + " | " + contacto + " | " + email);
+    }
+
+    /**
+     * Função que apresenta o menu do CLIENTE
+     *
+     * @param matrizFilmes Matriz com os dados dos filmes
+     */
+    public static void menuCliente(String[][] matrizFilmes) {
+        Scanner input = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("\n-*-*-* MENU CLIENTE *-*-*-\n");
+            System.out.println("1. Registar Utilizador");
+            System.out.println("2. Registar um Novo Rating");
+            System.out.println("3. Ver Melhor Filme de um Estúdio");
+            System.out.println("4. Ver Pior Filme de um Estúdio");
+            System.out.println("5. Consultar Média de Avaliações de um Filme");
+            System.out.println("6. Ver Todos os Filmes com Avaliação Acima de um Valor");
+            System.out.println("7. Ver Número de Filmes Avaliados por Estúdio");
+            System.out.println("8. Consultar Todos os Géneros de Filmes");
+            System.out.println("9. Ver Total de Filmes Avaliados");
+            System.out.println("0. Sair");
+            System.out.print("Opção: ");
+            opcao = input.nextInt();
+            input.nextLine(); // limpar o buffer
+
+            switch (opcao) {
+                case 1:
+                    registarUtilizador();
+                    break;
+                case 2:
+                    imprimirCatalogo(matrizFilmes);
+                    break;
+                case 3:
+                    // verMelhorFilmeEstudio(matrizFilmes);
+
+                    break;
+                case 4:
+                    // verPiorFilmeEstudio(matrizFilmes);
+                    break;
+                case 5:
+                    // consultarMediaAvaliacoes(matrizFilmes);
+                    break;
+                case 6:
+                    // filmesAcimaDeValor(matrizFilmes);
+                    break;
+                case 7:
+                    // numeroFilmesPorEstudio(matrizFilmes);
+                    break;
+                case 8:
+                    // consultarGenerosFilmes(matrizFilmes);
+                    break;
+                case 9:
+                    // totalFilmesAvaliados(matrizFilmes);
+                    break;
+                case 0:
+                    System.out.println("A sair do menu CLIENTE.");
+                    break;
+                default:
+                    System.out.println("Opção inválida.");
+            }
+
+        } while (opcao != 0);
+    }
+
+    public static void imprimirCatalogo(String[][] matriz) {
+        System.out.println("\n-*-*-* Catálogo de Filmes Avaliados *-*-*-\n");
+
+        for (int linha = 0; linha < matriz.length; linha++) {
+            String titulo = matriz[linha][1];      // Coluna 1: título do filme
+            String avaliacao = matriz[linha][2];   // Coluna 2: classificação
+            System.out.println(titulo + " | Avaliação: " + avaliacao);
         }
     }
 }

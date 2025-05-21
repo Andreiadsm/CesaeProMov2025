@@ -7,17 +7,27 @@ import static TrabalhoPratico.Funcoes.*;// invocar diretamente as funções
 public class TrabalhoPratico {
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner input = new Scanner(System.in);// Importar scanner para ler dados do utilizador
+        Scanner input = new Scanner(System.in); // Ferramenta para ler dados do utilizador
 
-        System.out.print("Tipo de Utilizador (ADMIN || CLIENTE): ");
-        String tipoUtilizador = input.nextLine();
+        String tipoUtilizador = "";
 
-        if (tipoUtilizador.equalsIgnoreCase("ADMIN")) {// Se o utilizador for ADMIN
+        // Repetir enquanto o tipo não for válido
+        while (!tipoUtilizador.equalsIgnoreCase("ADMIN") && !tipoUtilizador.equalsIgnoreCase("CLIENTE")) {
+            System.out.print("Tipo de Utilizador (ADMIN || CLIENTE): ");
+            tipoUtilizador = input.nextLine();
+
+            if (!tipoUtilizador.equalsIgnoreCase("ADMIN") && !tipoUtilizador.equalsIgnoreCase("CLIENTE")) {
+                System.out.println("Tipo de utilizador inválido. Tente novamente.\n");
+            }
+        }
+
+        // Se o utilizador for ADMIN
+        if (tipoUtilizador.equalsIgnoreCase("ADMIN")) {
             String username;
             String password;
             boolean loginValido = false;
 
-            while (!loginValido) { //repete enquanto não for válido
+            while (!loginValido) {
                 System.out.print("USERNAME: ");
                 username = input.nextLine();
 
@@ -26,32 +36,21 @@ public class TrabalhoPratico {
 
                 String[][] logins = ficheiroParaMatrizLogins("Ficheiros/IMDV_AdminLogin.csv");
 
-                loginValido = validarLogin(logins, username, password); //valida as credenciais
+                loginValido = validarLogin(logins, username, password);
 
-                if (!loginValido) {// avisa o utilizador se for inválido
+                if (!loginValido) {
                     System.out.println("Login inválido. Tente novamente.\n");
                 }
             }
 
-            // Se o login for aceite, carregar os dados dos filmes e mostrar o menu de admin
             System.out.println("Login com sucesso!\n");
 
-            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV_Filmes.csv");
-
-            // Mostrar o menu do administrador
+            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
             menuAdmin(filmes);
 
-            return; // Termina aqui o programa para não avançar para o CLIENTE
+        } else { // é ClIENTE
+            String[][] filmes = ficheiroParaMatriz("FFicheiros/IMDV.csv");
+            menuCliente(filmes);
         }
-
-        // Caso o utilizador seja CLIENTE
-        if (tipoUtilizador.equalsIgnoreCase("CLIENTE")) {
-            System.out.println("Bem-vindo CLIENTE!");
-            // Chamar o menuCliente()
-            return;
-        }
-
-        // Se o utilizador introduzir algo que não seja ADMIN ou CLIENTE
-        System.out.println("Tipo de utilizador inválido.");
     }
 }
