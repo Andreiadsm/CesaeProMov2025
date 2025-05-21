@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="funcoes">
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex07_v2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex08.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FichaPratica07/Ex09.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TrabalhoPratico/TrabalhoPratico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/VetoresMatrizes/Ex02.java" afterDir="false" />
+    <list default="true" id="b35829e7-eec9-4c6b-8b1c-974d73c3ba05" name="Changes" comment="ficheiros">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FichaPratica06/Ex06.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FichaPratica06/Ex06.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VetoresMatrizes/Ex02.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,13 +138,32 @@
       <option name="project" value="LOCAL" />
       <updated>1747756191603</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ficheiros">
+      <created>1747840995565</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747840995565</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="funcoes" />
-    <option name="LAST_COMMIT_MESSAGE" value="funcoes" />
+    <MESSAGE value="ficheiros" />
+    <option name="LAST_COMMIT_MESSAGE" value="ficheiros" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
