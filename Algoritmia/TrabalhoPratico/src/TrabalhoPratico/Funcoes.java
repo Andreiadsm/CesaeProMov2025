@@ -103,7 +103,7 @@ public class Funcoes {
         int opcao;
 
         do {
-            System.out.println("\n--- MENU ADMIN ---");
+            System.out.println("\n*-*-*-* MENU ADMIN *-*-*-*");
             System.out.println("1. Consulta de Ficheiros");
             System.out.println("2. Total de Ratings");
             System.out.println("3. Imprimir Todos os Estúdios");
@@ -250,6 +250,7 @@ public class Funcoes {
                     break;
                 case 0:
                     System.out.println("A sair do menu CLIENTE.");
+                    //imprimir copyright
                     break;
                 default:
                     System.out.println("Opção inválida.");
