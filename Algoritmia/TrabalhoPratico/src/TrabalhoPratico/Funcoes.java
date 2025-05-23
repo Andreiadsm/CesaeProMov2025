@@ -511,27 +511,30 @@ public class Funcoes {
             linhaAtual++;
         }
 
-        return totalLinhas;
+        return matrizQuizz;
     }
 
     /**
      * Função que imprime o conteúdo da matriz Quizz
+     *
+     * @return
      */
-    public static void consultaQuizz(String[][] matrizQuizz) throws FileNotFoundException {
-        for (int linha = 0; linha < matrizQuizz.length; linha++) {
+    public static String consultaQuizz(String[][] matrizQuizz) throws FileNotFoundException {
+        String linhas = "";
+        for (int linhas = 0; linhas < matrizQuizz.length; linhas++) {
             for (int coluna = 0; coluna < matrizQuizz[0].length; coluna++) {
             }
             System.out.println();
         }
-        return consultaQuizz();
+        return linhas;
     }
 
     /**
      * Função que verifica se lê e imprime pergunta 1 da matriz
      */
-    public static String imprimirPergunta1(String[][] consultaQuizz) { throws FileNotFoundException {
+    public static String imprimirPergunta1(String[][] consultaQuizz) throws FileNotFoundException {
         String pergunta1 = consultaQuizz[0][0];
         return pergunta1;
     }
-
+    }
 }
