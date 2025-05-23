@@ -49,9 +49,27 @@ public class TrabalhoPratico {
             menuAdmin(filmes);
 
         } else { // é ClIENTE
-            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
+            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV_Quizz.csv");
             menuCliente(filmes);
-        }
-    }
+            String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/IMDV_Quiz.csv");
 
+            int pontuacao = 0;
+
+            for (int i = 0; i < quiz.length; i++) {
+
+                String respostaUtilizador = fazerPergunta(quiz, i);
+
+                if (respostaUtilizador.equalsIgnoreCase(quiz[i][5])) {
+
+                    pontuacao++;
+
+                }
+
+            }
+
+            System.out.println("\nPontuação final: " + pontuacao + " em " + quiz.length);
+
+
+
+        }
 }

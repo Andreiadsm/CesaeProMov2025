@@ -199,7 +199,7 @@ public class Funcoes {
      *
      * @param matrizFilmes Matriz com os dados dos filmes
      */
-    public static void menuCliente(String[][] matrizFilmes) throws FileNotFoundException {
+    public static void menuCliente(String[][] matrizFilmes, String[][] matrizQuiz) {
         Scanner input = new Scanner(System.in);
         int opcao;
 
@@ -239,7 +239,7 @@ public class Funcoes {
                     imprimirCriticaMaisRecente(matrizFilmes);
                     break;
                 case 7:
-                    imprimirMenuQuizz();
+                    quiz(matrizQuiz);
                     break;
                 case 8:
                     // catalogoEstudioFormatado;
@@ -300,7 +300,6 @@ public class Funcoes {
                 break;
             default:
                 System.out.println("Opção inválida.");
-                return;
         }
 
         // Ler e imprimir o conteúdo do ficheiro escolhido
@@ -330,7 +329,7 @@ public class Funcoes {
             // Apanhar o nome do estúdio na linha atual (coluna 5)
             String estudioAtual = matriz[linha][5];
 
-            // Vamos verificar se já calculei este estúdio antes
+            // Verificar se já calculei este estúdio antes
             boolean jaCalculado = false;
 
             // Percorrer as linhas anteriores para ver se este estúdio já foi tratado
@@ -440,57 +439,14 @@ public class Funcoes {
         return (ultimaLinha);
     }
 
-    /**
-     * Função que mostra o menu do Quizz
-     */
-    public static void imprimirMenuQuizz(String[][] matrizQuizz) throws FileNotFoundException {
-        Scanner input = new Scanner(System.in);
-        int opcao;
-
-        do {
-            System.out.println("\n*-*-*-* Quizz *-*-*-*\n");
-            System.out.println("1ª pergunta");
-            System.out.println("2ª pergunta");
-            System.out.println("3ª pergunta");
-            System.out.println("4ª Pergunta");
-            System.out.print("5ª Pergunta");
-            System.out.print("Sair");
-
-            opcao = input.nextInt();
-            input.nextLine();
-
-            switch (opcao) {
-                case 1:
-                    imprimirPergunta1(matrizQuizz);
-                    break;
-                case 2:
-                    //imprimirPergunta2(matrizQuizz);
-                    break;
-                case 3:
-                    //imprimirPergunta3(matrizQuizz);
-                    break;
-                case 4:
-                    //imprimirPergunta4(matrizQuizz);
-                    break;
-                case 5:
-                    //imprimirPergunta5(matrizQuizz);
-                    break;
-                case 0:
-                    System.out.println("Encerrar o Programa");
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-            }
-
-        } while (opcao != 0);
-    }
 
     /**
      * Função que carrega os dados de Quizz para uma matriz
      */
-    public static String[][] ficheiroParaMatrizQuizz(String caminho) throws FileNotFoundException {
-        int totalLinhas = contarLinhas(caminho);
-        String[][] matrizQuizz = new String[totalLinhas][5];
+    public static String[][] ficheiroParaMatrizQuiz(String caminho) throws FileNotFoundException {
+        int totalLinhas = contarLinhas(caminho); // já tens esta função criada
+
+        String[][] matrizQuiz = new String[totalLinhas][6]; // 6 colunas: pergunta, A, B, C, D, resposta correta
 
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
@@ -499,42 +455,37 @@ public class Funcoes {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] linhaSeparada = linha.split(";");
+            String[] linhaSeparada = linha.split(";"); // assume que as colunas estão separadas por ;
 
-            matrizQuizz[linhaAtual][0] = linhaSeparada[0];
-            matrizQuizz[linhaAtual][1] = linhaSeparada[1];
-            matrizQuizz[linhaAtual][2] = linhaSeparada[2];
-            matrizQuizz[linhaAtual][3] = linhaSeparada[3];
-            matrizQuizz[linhaAtual][4] = linhaSeparada[4];
-            matrizQuizz[linhaAtual][5] = linhaSeparada[5];
+            for (int coluna = 0; coluna < linhaSeparada.length; coluna++) {
+                matrizQuiz[linhaAtual][coluna] = linhaSeparada[coluna];
+            }
 
             linhaAtual++;
         }
 
-        return matrizQuizz;
+        return matrizQuiz;
     }
-
-    /**
-     * Função que imprime o conteúdo da matriz Quizz
-     *
-     * @return
-     */
-    public static String consultaQuizz(String[][] matrizQuizz) throws FileNotFoundException {
-        String linhas = "";
-        for (int linhas = 0; linhas < matrizQuizz.length; linhas++) {
-            for (int coluna = 0; coluna < matrizQuizz[0].length; coluna++) {
+    public static void quiz(String[][] matrizQuiz) {
+        Scanner input = new Scanner(System.in);
+        int pontuacao = 0;
+        for (int linha = 0; linha < matrizQuiz.length; linha++) {
+            // Mostrar pergunta
+            System.out.println("\n" + matrizQuiz[linha][0]);
+            System.out.println("A) " + matrizQuiz[linha][1]);
+            System.out.println("B) " + matrizQuiz[linha][2]);
+            System.out.println("C) " + matrizQuiz[linha][3]);
+            System.out.println("D) " + matrizQuiz[linha][4]);
+            // Ler resposta
+            System.out.print("Resposta: ");
+            String resposta = input.nextLine().toUpperCase();
+            // Verificar se está certa
+            if (resposta.equalsIgnoreCase(matrizQuiz[linha][5])) {
+                pontuacao++;
             }
-            System.out.println();
         }
-        return linhas;
+        System.out.println("\nPontuação final: " + pontuacao + " em " + matrizQuiz.length);
     }
 
-    /**
-     * Função que verifica se lê e imprime pergunta 1 da matriz
-     */
-    public static String imprimirPergunta1(String[][] consultaQuizz) throws FileNotFoundException {
-        String pergunta1 = consultaQuizz[0][0];
-        return pergunta1;
-    }
-    }
+
 }
