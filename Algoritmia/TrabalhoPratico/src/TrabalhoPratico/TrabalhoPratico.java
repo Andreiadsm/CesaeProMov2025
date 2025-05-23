@@ -55,4 +55,5 @@ public class TrabalhoPratico {
             String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/IMDV_Quiz.csv");
 
         }
+    }
 }
