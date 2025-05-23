@@ -49,10 +49,9 @@ public class TrabalhoPratico {
             menuAdmin(filmes);
 
         } else { // é ClIENTE
-            String[][] filmes = ficheiroParaMatriz();
-            menuCliente(filmes);
+            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
 
             String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/IMDV_Quiz.csv");
-
         }
+    }
 }
