@@ -199,7 +199,7 @@ public class Funcoes {
      *
      * @param matrizFilmes Matriz com os dados dos filmes
      */
-    public static void menuCliente(String[][] matrizFilmes, String[][] matrizQuiz) {
+    public static void menuCliente(String[][] matrizFilmes, String[][] matrizQuiz) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
 
@@ -227,7 +227,7 @@ public class Funcoes {
                     imprimirCatalogo(matrizFilmes);
                     break;
                 case 3:
-                    //imprimir catálogo gráfico;
+                    imprimirCatalogoGrafico();
                     break;
                 case 4:
                     imprimirMelhorEstudio(matrizFilmes);
@@ -465,5 +465,21 @@ public class Funcoes {
         }
 
         return matrizQuiz;
+    }
+
+    /**
+     * Função que permite imprimir o copyright ao sair do menu cliente.
+     * @param caminho
+     * @throws FileNotFoundException
+     */
+    public static void imprimirCopyright(String caminho) throws FileNotFoundException {
+        File ficheiro = new File(caminho);
+        Scanner sc = new Scanner(ficheiro);
+
+        System.out.println("\n================= COPYRIGHT =================\n");
+        while (sc.hasNextLine()) {
+            System.out.println(sc.nextLine());
+        }
+        System.out.println("\n=============================================\n");
     }
 }

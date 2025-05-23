@@ -51,8 +51,12 @@ public class TrabalhoPratico {
         } else { // é ClIENTE
 
             String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
-            String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/IMDV_Quiz.csv");
+            String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/Quiz.csv");
             menuCliente(filmes, quiz);
+
+            imprimirCopyright("Ficheiros/IMDV_Copyright.txt");
+
         }
+
     }
 }
