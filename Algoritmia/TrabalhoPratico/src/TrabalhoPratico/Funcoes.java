@@ -246,7 +246,7 @@ public class Funcoes {
                     imprimirCriticaMaisRecente(matrizFilmes);
                     break;
                 case 7:
-                    //imprimirMenuQuizz;
+                    executarQuiz(matrizQuiz);
                     break;
                 case 8:
                     // catalogoEstudioFormatado;
@@ -320,116 +320,120 @@ public class Funcoes {
         }
     }
 
+    /**
+     * Função que determinao estúdio com maior média de avaliação
+     * @param matriz
+     */
     public static void imprimirMelhorEstudio(String[][] matriz) {
 
+        String melhorEstudio = ""; // Guarda o nome do estúdio com melhor média
+        double melhorMedia = -1;   // Inicializado a -1 para garantir que qualquer média será maior
 
-        String melhorEstudio = "";// variável melhorEstudio inicializada como boa prática ensinada
+        int linhaAtual = 0;
 
-        double melhorMedia = -1; //garantiamos que a inicializar a -1 qualquer média será mairo
+        // Percorrer todas as linhas da matriz de filmes
+        while (linhaAtual < matriz.length) {
 
-        // Variável para controlar a linha atual da matriz
-        int linha = 0;
-
-        // Ciclo para percorrer todas as linhas da matriz
-        while (linha < matriz.length) {
-
-            // Apanhar o nome do estúdio na linha atual (coluna 5)
-            String estudioAtual = matriz[linha][5];
-
-            // Verificar se já calculei este estúdio antes
+            String estudioAtual = matriz[linhaAtual][5]; // Coluna 5: Estúdio
             boolean jaCalculado = false;
 
-            // Percorrer as linhas anteriores para ver se este estúdio já foi tratado
-            for (int anterior = 0; anterior < linha; anterior++) {
-                if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
+            // Verificar se este estúdio já foi processado
+            for (int linhaAnterior = 0; linhaAnterior < linhaAtual; linhaAnterior++) {
+                if (matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
                     jaCalculado = true;
+                    break;
                 }
             }
 
-            // Se for a primeira vez que encontramos este estúdio, então vamos calcular
+            // Se ainda não foi calculado, processa este estúdio
             if (!jaCalculado) {
+                int somaRatings = 0;
+                int contadorFilmes = 0;
 
-                int total = 0;       // Somatório dos ratings do estúdio
-                int contador = 0;    // Número de filmes desse estúdio
+                int linhaPesquisa = 0;
 
-                int pesquisa = 0;
-
-                // Percorrer novamente toda a matriz para somar os ratings do estúdio atual
-                while (pesquisa < matriz.length) {
-                    if (matriz[pesquisa][5].equalsIgnoreCase(estudioAtual)) {
-                        total += Double.parseDouble(matriz[pesquisa][2]); // rating está na coluna 2
-                        contador++;
+                // Percorrer novamente a matriz para somar os ratings deste estúdio
+                while (linhaPesquisa < matriz.length) {
+                    if (matriz[linhaPesquisa][5].equalsIgnoreCase(estudioAtual)) {
+                        somaRatings += Double.parseDouble(matriz[linhaPesquisa][2]); // Coluna 2: rating
+                        contadorFilmes++;
                     }
-                    pesquisa++;
+                    linhaPesquisa++;
                 }
 
-                // Calcular a média dos ratings para o estúdio atual
-                double media = (double) total / contador;
+                double mediaEstudio = (double) somaRatings / contadorFilmes;
 
-                // Se esta média for melhor do que a melhor encontrada até agora, atualizamos
-                if (media > melhorMedia) {
-                    melhorMedia = media;
+                // Atualizar se este estúdio tiver uma média melhor
+                if (mediaEstudio > melhorMedia) {
+                    melhorMedia = mediaEstudio;
                     melhorEstudio = estudioAtual;
                 }
             }
 
-            // Avançar para a próxima linha da matriz
-            linha++;
+            linhaAtual++;
         }
 
-        // Mostrar o estúdio com a melhor média
+        // Imprimir o estúdio com melhor média
         System.out.println("\nMelhor estúdio: " + melhorEstudio + " (" + melhorMedia + ")");
     }
 
     /**
-     * Função que mostra o estúdio com a pior classificação média
+     * Função que calcula o estúdio com pior média de rating
+     * @param matriz
      */
     public static void imprimirPiorEstudio(String[][] matriz) {
 
-        String piorEstudio = "";         // Armazena o nome do estúdio com pior média
-        double piorMedia = 999;          // Começa com um valor alto para garantir que a 1ª média seja menor
+        String piorEstudio = "";   // Guarda o nome do estúdio com a pior média
+        double piorMedia = 10;    // Inicializa com num alto para garantir que vai ser substituído
 
-        int linha = 0;
+        int linhaAtual = 0;
 
-        while (linha < matriz.length) {
+        // Percorrer todas as linhas da matriz de filmes
+        while (linhaAtual < matriz.length) {
 
-            String estudioAtual = matriz[linha][5];
+            String estudioAtual = matriz[linhaAtual][5]; // Coluna 5: Estúdio
             boolean jaCalculado = false;
 
-            // Verifica se já processámos este estúdio
-            for (int anterior = 0; anterior < linha; anterior++) {
-                if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
+            // Verificar se este estúdio já foi processado
+            for (int linhaAnterior = 0; linhaAnterior < linhaAtual; linhaAnterior++) {
+                if (matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
                     jaCalculado = true;
+                    break;
                 }
             }
 
+            // Se ainda não foi processado, vamos calcular a média
             if (!jaCalculado) {
-                int total = 0;
-                int contador = 0;
+                int somaRatings = 0;
+                int contadorFilmes = 0;
 
-                int pesquisa = 0;
+                int linhaPesquisa = 0;
 
-                while (pesquisa < matriz.length) {
-                    if (matriz[pesquisa][5].equalsIgnoreCase(estudioAtual)) {
-                        total += Double.parseDouble(matriz[pesquisa][2]); // rating na coluna 2
-                        contador++;
+                // Percorrer toda a matriz para somar os ratings deste estúdio
+                while (linhaPesquisa < matriz.length) {
+                    if (matriz[linhaPesquisa][5].equalsIgnoreCase(estudioAtual)) {
+                        somaRatings += Double.parseDouble(matriz[linhaPesquisa][2]); // Coluna 2: rating
+                        contadorFilmes++;
                     }
-                    pesquisa++;
+                    linhaPesquisa++;
                 }
 
-                double media = (double) total / contador;
+                double mediaEstudio = (double) somaRatings / contadorFilmes;
 
-                // Se esta média for menor que a pior encontrada até agora, atualizamos
-                if (media < piorMedia) {
-                    piorMedia = media;
+                // Atualizar se esta média for pior do que a atual
+                if (mediaEstudio < piorMedia) {
+                    piorMedia = mediaEstudio;
                     piorEstudio = estudioAtual;
                 }
             }
-            linha++;
+
+            linhaAtual++;
         }
 
+        // Imprimir o estúdio com pior média
         System.out.println("\nPior estúdio: " + piorEstudio + " (" + piorMedia + ")");
     }
+
 
     /**
      * Função que mostra a critica mais recente (ultima linha)
@@ -451,12 +455,14 @@ public class Funcoes {
      * Função que carrega os dados de Quizz para uma matriz
      */
     public static String[][] ficheiroParaMatrizQuiz(String caminho) throws FileNotFoundException {
-        int totalLinhas = contarLinhas(caminho);
+        int totalLinhas = contarLinhas(caminho) - 1; // Ignorar cabeçalho
 
         String[][] matrizQuiz = new String[totalLinhas][6];
 
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
+
+        sc.nextLine(); // Saltar cabeçalho
 
         int linhaAtual = 0;
 
@@ -475,6 +481,42 @@ public class Funcoes {
     }
 
     /**
+     * Função que permite mostrar o conteúdo do quizz e armazenar respostas
+     * @param matrizQuiz
+     */
+    public static void executarQuiz(String[][] matrizQuiz) {
+        Scanner input = new Scanner(System.in);
+        int pontuacao = 0;
+
+        System.out.println("\n-*-*-* QUIZZ IMDV *-*-*-\n");
+
+        for (int i = 0; i < matrizQuiz.length; i++) {
+            System.out.println("Pergunta " + (i + 1) + ": " + matrizQuiz[i][0]);
+            System.out.println("1. " + matrizQuiz[i][1]);
+            System.out.println("2. " + matrizQuiz[i][2]);
+            System.out.println("3. " + matrizQuiz[i][3]);
+            System.out.println("4. " + matrizQuiz[i][4]);
+
+            int respostaUtilizador;
+            do {
+                System.out.print("Escolhe a opção (1-4): ");
+                respostaUtilizador = input.nextInt();
+            } while (respostaUtilizador < 1 || respostaUtilizador > 4);
+
+            int respostaCorreta = Integer.parseInt(matrizQuiz[i][5]);
+
+            if (respostaUtilizador == respostaCorreta) {
+                pontuacao++;
+                System.out.println("\nAcertou!\n");
+            } else {
+                System.out.println("\nErrado. Resposta correta: " + respostaCorreta + ". " + matrizQuiz[i][respostaCorreta] + "\n");
+            }
+        }
+
+        System.out.println("Pontuação final: " + pontuacao + " / " + matrizQuiz.length);
+    }
+
+    /**
      * Função que permite imprimir o copyright ao sair do menu cliente.
      * @param caminho
      * @throws FileNotFoundException
@@ -483,10 +525,9 @@ public class Funcoes {
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
 
-        System.out.println("\n================= COPYRIGHT =================\n");
+        System.out.println("");
         while (sc.hasNextLine()) {
             System.out.println(sc.nextLine());
         }
-        System.out.println("\n=============================================\n");
     }
 }
