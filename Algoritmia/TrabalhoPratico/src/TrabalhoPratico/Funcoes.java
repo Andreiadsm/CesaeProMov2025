@@ -239,7 +239,7 @@ public class Funcoes {
                     imprimirCriticaMaisRecente(matrizFilmes);
                     break;
                 case 7:
-                    quiz(matrizQuiz);
+
                     break;
                 case 8:
                     // catalogoEstudioFormatado;
@@ -444,9 +444,9 @@ public class Funcoes {
      * Função que carrega os dados de Quizz para uma matriz
      */
     public static String[][] ficheiroParaMatrizQuiz(String caminho) throws FileNotFoundException {
-        int totalLinhas = contarLinhas(caminho); // já tens esta função criada
+        int totalLinhas = contarLinhas(caminho);
 
-        String[][] matrizQuiz = new String[totalLinhas][6]; // 6 colunas: pergunta, A, B, C, D, resposta correta
+        String[][] matrizQuiz = new String[totalLinhas][6];
 
         File ficheiro = new File(caminho);
         Scanner sc = new Scanner(ficheiro);
@@ -455,7 +455,7 @@ public class Funcoes {
 
         while (sc.hasNextLine()) {
             String linha = sc.nextLine();
-            String[] linhaSeparada = linha.split(";"); // assume que as colunas estão separadas por ;
+            String[] linhaSeparada = linha.split(";");
 
             for (int coluna = 0; coluna < linhaSeparada.length; coluna++) {
                 matrizQuiz[linhaAtual][coluna] = linhaSeparada[coluna];
@@ -466,19 +466,57 @@ public class Funcoes {
 
         return matrizQuiz;
     }
+
+    public static void String [][] menuQuizz(String quiz) throws FileNotFoundException {
+        Scanner input = new Scanner(System.in);
+
+        int pontuacao = 0;
+
+        System.out.println("\n*-*-*-* QUIZZ IMDV *-*-*-*\n");
+
+        for (int i = 0; i < quiz.length; i++) {
+            String pergunta = quiz[i][0];
+            String opcaoA = quiz[i][1];
+            String opcaoB = quiz[i][2];
+            String opcaoC = quiz[i][3];
+            String opcaoD = quiz[i][4];
+            String respostaCerta = quiz[i][5]; // Ex: "A", "B", ...
+
+            System.out.println("Pergunta " + (i + 1) + ": " + pergunta);
+            System.out.println("A) " + opcaoA);
+            System.out.println("B) " + opcaoB);
+            System.out.println("C) " + opcaoC);
+            System.out.println("D) " + opcaoD);
+            System.out.print("Resposta: ");
+            String respostaUser = input.nextLine().trim().toUpperCase();
+
+            if (respostaUser.equals(respostaCerta.toUpperCase())) {
+                pontuacao++;
+            }
+
+            System.out.println(); // linha em branco entre perguntas
+        }
+
+        System.out.println("Pontuação final: " + pontuacao + "/" + quiz.length);
+
     public static void quiz(String[][] matrizQuiz) {
         Scanner input = new Scanner(System.in);
+
         int pontuacao = 0;
+
         for (int linha = 0; linha < matrizQuiz.length; linha++) {
+
             // Mostrar pergunta
             System.out.println("\n" + matrizQuiz[linha][0]);
             System.out.println("A) " + matrizQuiz[linha][1]);
             System.out.println("B) " + matrizQuiz[linha][2]);
             System.out.println("C) " + matrizQuiz[linha][3]);
             System.out.println("D) " + matrizQuiz[linha][4]);
+
             // Ler resposta
             System.out.print("Resposta: ");
-            String resposta = input.nextLine().toUpperCase();
+            String resposta = input.nextLine();
+
             // Verificar se está certa
             if (resposta.equalsIgnoreCase(matrizQuiz[linha][5])) {
                 pontuacao++;
@@ -486,6 +524,5 @@ public class Funcoes {
         }
         System.out.println("\nPontuação final: " + pontuacao + " em " + matrizQuiz.length);
     }
-
 
 }

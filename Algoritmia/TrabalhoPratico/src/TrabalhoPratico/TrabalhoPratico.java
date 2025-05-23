@@ -49,8 +49,9 @@ public class TrabalhoPratico {
             menuAdmin(filmes);
 
         } else { // é ClIENTE
-            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV_Quizz.csv");
+            String[][] filmes = ficheiroParaMatriz();
             menuCliente(filmes);
+
             String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/IMDV_Quiz.csv");
 
             int pontuacao = 0;
