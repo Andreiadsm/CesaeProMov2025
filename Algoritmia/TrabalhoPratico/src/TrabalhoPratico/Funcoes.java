@@ -152,23 +152,30 @@ public class Funcoes {
     }
 
     /**
-     * Função que imprime estúdios únicos (sem duplicados)
+     * Função que imprime estúdios únicos (sem repetições),
+     * ex06 da Ficha 6 (verificação de ordem crescente),
+     * onde se comparam elementos anteriores com o atual.
      */
     public static void imprimirEstudios(String[][] matriz) {
         System.out.println("Estúdios avaliados:");
 
-        for (int i = 0; i < matriz.length; i++) {
-            String estudioAtual = matriz[i][5]; // Coluna 5 = estúdio
-            boolean duplicado = false;
+        for (int linha = 0; linha < matriz.length; linha++) {
 
-            for (int anterior = 0; anterior < i; anterior++) {
+            // Obtemos o nome do estúdio na linha atual
+            String estudioAtual = matriz[linha][5]; // Coluna 5 = estúdio
+
+            // Variável para saber se já imprimimos este estúdio
+            boolean jaImprimimos = false;
+
+            for (int anterior = 0; anterior < linha; anterior++) {
                 if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
-                    duplicado = true;
-                    break;
+                    jaImprimimos = true;
+                    break; // impresso sai do ciclo
                 }
             }
 
-            if (!duplicado) {
+            // Se ainda não imprimimos, mostramos no ecrã
+            if (!jaImprimimos) {
                 System.out.println("- " + estudioAtual);
             }
         }
@@ -274,7 +281,7 @@ public class Funcoes {
     public static void imprimirCatalogoGrafico() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n--- Catálogos Gráficos Disponíveis ---");
+        System.out.println("\n*-*-*-* Catálogos Gráficos Disponíveis *-*-*-*");
         System.out.println("1. Harry Potter");
         System.out.println("2. Interstellar");
         System.out.println("3. Lord of The Rings");

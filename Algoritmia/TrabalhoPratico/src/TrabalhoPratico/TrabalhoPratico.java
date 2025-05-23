@@ -57,6 +57,5 @@ public class TrabalhoPratico {
             imprimirCopyright("Ficheiros/IMDV_Copyright.txt");
 
         }
-
     }
 }
