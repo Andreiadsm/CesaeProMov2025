@@ -199,21 +199,21 @@ public class Funcoes {
      *
      * @param matrizFilmes Matriz com os dados dos filmes
      */
-    public static void menuCliente(String[][] matrizFilmes) {
+    public static void menuCliente(String[][] matrizFilmes) throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
         int opcao;
 
         do {
             System.out.println("\n-*-*-* MENU CLIENTE *-*-*-\n");
-            System.out.println("1. Registar Utilizador");
-            System.out.println("2. Registar um Novo Rating");
-            System.out.println("3. Ver Melhor Filme de um Estúdio");
-            System.out.println("4. Ver Pior Filme de um Estúdio");
-            System.out.println("5. Consultar Média de Avaliações de um Filme");
-            System.out.println("6. Ver Todos os Filmes com Avaliação Acima de um Valor");
-            System.out.println("7. Ver Número de Filmes Avaliados por Estúdio");
-            System.out.println("8. Consultar Todos os Géneros de Filmes");
-            System.out.println("9. Ver Total de Filmes Avaliados");
+            System.out.println("1. Registar utilizador");
+            System.out.println("2. Imprimir catálogo");
+            System.out.println("3. Imprimir catálogo gráfico");
+            System.out.println("4. Imprimir melhor estúdio");
+            System.out.println("5. Imprimir pior estúdio");
+            System.out.println("6. Ver critica mais recente");
+            System.out.println("7. Fazer Quizz");
+            System.out.println("8. Imprimir catálogo estúdio");
+            System.out.println("9. Imprimir catálogo categoria");
             System.out.println("0. Sair");
             System.out.print("Opção: ");
             opcao = input.nextInt();
@@ -227,26 +227,25 @@ public class Funcoes {
                     imprimirCatalogo(matrizFilmes);
                     break;
                 case 3:
-                    // verMelhorFilmeEstudio(matrizFilmes);
-
+                    imprimirCatalogoGrafico();
                     break;
                 case 4:
-                    // verPiorFilmeEstudio(matrizFilmes);
+                    imprimirMelhorEstudio(matrizFilmes);
                     break;
                 case 5:
-                    // consultarMediaAvaliacoes(matrizFilmes);
+                    imprimirPiorEstudio(matrizFilmes);
                     break;
                 case 6:
-                    // filmesAcimaDeValor(matrizFilmes);
+                    // criticaMaisRecente(matrizFilmes);
                     break;
                 case 7:
-                    // numeroFilmesPorEstudio(matrizFilmes);
+                    // quizz;
                     break;
                 case 8:
-                    // consultarGenerosFilmes(matrizFilmes);
+                    // catalogoEstudioFormatado;
                     break;
                 case 9:
-                    // totalFilmesAvaliados(matrizFilmes);
+                    // imprimirCatalogoCategoria;
                     break;
                 case 0:
                     System.out.println("A sair do menu CLIENTE.");
@@ -267,5 +266,163 @@ public class Funcoes {
             String avaliacao = matriz[linha][2];   // Coluna 2: classificação
             System.out.println(titulo + " | Avaliação: " + avaliacao);
         }
+    }
+
+    /**
+     * Função que imprime a arte gráfica de um dos filmes disponíveis
+     */
+    public static void imprimirCatalogoGrafico() throws FileNotFoundException {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("\n--- Catálogos Gráficos Disponíveis ---");
+        System.out.println("1. Harry Potter");
+        System.out.println("2. Interstellar");
+        System.out.println("3. Lord of The Rings");
+        System.out.println("4. Star Wars");
+        System.out.print("Escolha uma opção: ");
+        int opcao = input.nextInt();
+        input.nextLine(); // limpar buffer
+
+        String caminhoFicheiro = "";
+
+        switch (opcao) {
+            case 1:
+                caminhoFicheiro = "Ficheiros/HarryPotter.txt";
+                break;
+            case 2:
+                caminhoFicheiro = "Ficheiros/Interstellar.txt";
+                break;
+            case 3:
+                caminhoFicheiro = "Ficheiros/LordOfTheRings.txt";
+                break;
+            case 4:
+                caminhoFicheiro = "Ficheiros/StarWars.txt";
+                break;
+            default:
+                System.out.println("Opção inválida.");
+                return;
+        }
+
+        // Ler e imprimir o conteúdo do ficheiro escolhido
+        File ficheiro = new File(caminhoFicheiro);
+        Scanner sc = new Scanner(ficheiro);
+
+        System.out.println("\n*-*-*-* Arte Gráfica do Filme *-*-*-*\n");
+
+        while (sc.hasNextLine()) {
+            System.out.println(sc.nextLine());
+        }
+    }
+
+    public static void imprimirMelhorEstudio(String[][] matriz) {
+
+
+        String melhorEstudio = "";// variável melhorEstudio inicializada como boa prática ensinada
+
+        double melhorMedia = -1; //garantiamos que a inicializar a -1 qualquer média será mairo
+
+        // Variável para controlar a linha atual da matriz
+        int linha = 0;
+
+        // Ciclo para percorrer todas as linhas da matriz
+        while (linha < matriz.length) {
+
+            // Apanhar o nome do estúdio na linha atual (coluna 5)
+            String estudioAtual = matriz[linha][5];
+
+            // Vamos verificar se já calculámos este estúdio antes
+            boolean jaCalculado = false;
+
+            // Percorrer as linhas anteriores para ver se este estúdio já foi tratado
+            for (int anterior = 0; anterior < linha; anterior++) {
+                if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
+                    jaCalculado = true;
+                }
+            }
+
+            // Se for a primeira vez que encontramos este estúdio, então vamos calcular
+            if (!jaCalculado) {
+
+                int total = 0;       // Somatório dos ratings do estúdio
+                int contador = 0;    // Número de filmes desse estúdio
+
+                int pesquisa = 0;
+
+                // Percorrer novamente toda a matriz para somar os ratings do estúdio atual
+                while (pesquisa < matriz.length) {
+                    if (matriz[pesquisa][5].equalsIgnoreCase(estudioAtual)) {
+                        total += Double.parseDouble(matriz[pesquisa][2]); // rating está na coluna 2
+                        contador++;
+                    }
+                    pesquisa++;
+                }
+
+                // Calcular a média dos ratings para o estúdio atual
+                double media = (double) total / contador;
+
+                // Se esta média for melhor do que a melhor encontrada até agora, atualizamos
+                if (media > melhorMedia) {
+                    melhorMedia = media;
+                    melhorEstudio = estudioAtual;
+                }
+            }
+
+            // Avançar para a próxima linha da matriz
+            linha++;
+        }
+
+        // Mostrar o estúdio com a melhor média
+        System.out.println("\nMelhor estúdio: " + melhorEstudio + " (" + melhorMedia + ")");
+    }
+
+    /**
+     * Função que mostra o estúdio com a pior classificação média
+     */
+    public static void imprimirPiorEstudio(String[][] matriz) {
+
+        String piorEstudio = "";         // Armazena o nome do estúdio com pior média
+        double piorMedia = 999;          // Começa com um valor alto para garantir que a 1ª média seja menor
+
+        int linha = 0;
+
+        while (linha < matriz.length) {
+
+            String estudioAtual = matriz[linha][5];
+            boolean jaCalculado = false;
+
+            // Verifica se já processámos este estúdio
+            for (int anterior = 0; anterior < linha; anterior++) {
+                if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
+                    jaCalculado = true;
+                }
+            }
+
+            if (!jaCalculado) {
+                int total = 0;
+                int contador = 0;
+
+                int pesquisa = 0;
+
+                while (pesquisa < matriz.length) {
+                    if (matriz[pesquisa][5].equalsIgnoreCase(estudioAtual)) {
+                        total += Double.parseDouble(matriz[pesquisa][2]); // rating na coluna 2
+                        contador++;
+                    }
+                    pesquisa++;
+                }
+
+                double media = (double) total / contador;
+
+                // Se esta média for menor que a pior encontrada até agora, atualizamos
+                if (media < piorMedia) {
+                    piorMedia = media;
+                    piorEstudio = estudioAtual;
+                }
+            }
+
+            linha++;
+        }
+
+        System.out.println("\nPior estúdio: " + piorEstudio + " (" + piorMedia + ")");
     }
 }
