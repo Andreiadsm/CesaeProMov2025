@@ -330,7 +330,7 @@ public class Funcoes {
             // Apanhar o nome do estúdio na linha atual (coluna 5)
             String estudioAtual = matriz[linha][5];
 
-            // Vamos verificar se já calculámos este estúdio antes
+            // Vamos verificar se já calculei este estúdio antes
             boolean jaCalculado = false;
 
             // Percorrer as linhas anteriores para ver se este estúdio já foi tratado
