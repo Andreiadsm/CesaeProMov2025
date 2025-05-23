@@ -227,7 +227,7 @@ public class Funcoes {
                     imprimirCatalogo(matrizFilmes);
                     break;
                 case 3:
-                    imprimirCatalogoGrafico();
+                    //imprimir catálogo gráfico;
                     break;
                 case 4:
                     imprimirMelhorEstudio(matrizFilmes);
@@ -239,7 +239,7 @@ public class Funcoes {
                     imprimirCriticaMaisRecente(matrizFilmes);
                     break;
                 case 7:
-
+                    //imprimirMenuQuizz;
                     break;
                 case 8:
                     // catalogoEstudioFormatado;
@@ -466,63 +466,4 @@ public class Funcoes {
 
         return matrizQuiz;
     }
-
-    public static void String [][] menuQuizz(String quiz) throws FileNotFoundException {
-        Scanner input = new Scanner(System.in);
-
-        int pontuacao = 0;
-
-        System.out.println("\n*-*-*-* QUIZZ IMDV *-*-*-*\n");
-
-        for (int i = 0; i < quiz.length; i++) {
-            String pergunta = quiz[i][0];
-            String opcaoA = quiz[i][1];
-            String opcaoB = quiz[i][2];
-            String opcaoC = quiz[i][3];
-            String opcaoD = quiz[i][4];
-            String respostaCerta = quiz[i][5]; // Ex: "A", "B", ...
-
-            System.out.println("Pergunta " + (i + 1) + ": " + pergunta);
-            System.out.println("A) " + opcaoA);
-            System.out.println("B) " + opcaoB);
-            System.out.println("C) " + opcaoC);
-            System.out.println("D) " + opcaoD);
-            System.out.print("Resposta: ");
-            String respostaUser = input.nextLine().trim().toUpperCase();
-
-            if (respostaUser.equals(respostaCerta.toUpperCase())) {
-                pontuacao++;
-            }
-
-            System.out.println(); // linha em branco entre perguntas
-        }
-
-        System.out.println("Pontuação final: " + pontuacao + "/" + quiz.length);
-
-    public static void quiz(String[][] matrizQuiz) {
-        Scanner input = new Scanner(System.in);
-
-        int pontuacao = 0;
-
-        for (int linha = 0; linha < matrizQuiz.length; linha++) {
-
-            // Mostrar pergunta
-            System.out.println("\n" + matrizQuiz[linha][0]);
-            System.out.println("A) " + matrizQuiz[linha][1]);
-            System.out.println("B) " + matrizQuiz[linha][2]);
-            System.out.println("C) " + matrizQuiz[linha][3]);
-            System.out.println("D) " + matrizQuiz[linha][4]);
-
-            // Ler resposta
-            System.out.print("Resposta: ");
-            String resposta = input.nextLine();
-
-            // Verificar se está certa
-            if (resposta.equalsIgnoreCase(matrizQuiz[linha][5])) {
-                pontuacao++;
-            }
-        }
-        System.out.println("\nPontuação final: " + pontuacao + " em " + matrizQuiz.length);
-    }
-
 }
