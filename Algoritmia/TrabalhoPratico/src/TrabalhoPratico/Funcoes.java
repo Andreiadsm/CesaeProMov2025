@@ -321,11 +321,11 @@ public class Funcoes {
 
     /**
      * Função que determinao estúdio com maior média de avaliação
-     * @param matriz
+     * @param matriz com 8 colunas, onde a coluna 2 indica o rating e a coluna5 o estudio
      */
     public static void imprimirMelhorEstudio(String[][] matriz) {
 
-        String melhorEstudio = ""; // Guarda o nome do estúdio com melhor média
+        String melhorEstudio = "";
         double melhorMedia = -1;   // Inicializado a -1 para garantir que qualquer média será maior
 
         int linhaAtual = 0;
@@ -333,7 +333,7 @@ public class Funcoes {
         // Percorrer todas as linhas da matriz de filmes
         while (linhaAtual < matriz.length) {
 
-            String estudioAtual = matriz[linhaAtual][5]; // Coluna 5: Estúdio
+            String estudioAtual = matriz[linhaAtual][5];
             boolean jaCalculado = false;
 
             // Verificar se este estúdio já foi processado
@@ -354,7 +354,7 @@ public class Funcoes {
                 // Percorrer novamente a matriz para somar os ratings deste estúdio
                 while (linhaPesquisa < matriz.length) {
                     if (matriz[linhaPesquisa][5].equalsIgnoreCase(estudioAtual)) {
-                        somaRatings += Double.parseDouble(matriz[linhaPesquisa][2]); // Coluna 2: rating
+                        somaRatings += Double.parseDouble(matriz[linhaPesquisa][2]);
                         contadorFilmes++;
                     }
                     linhaPesquisa++;
@@ -378,22 +378,20 @@ public class Funcoes {
 
     /**
      * Função que calcula o estúdio com pior média de rating
-     * @param matriz
+     * @param matriz com 8 colunas, onde a coluna 2 indica o rating e a coluna5 o estudio
      */
     public static void imprimirPiorEstudio(String[][] matriz) {
 
-        String piorEstudio = "";   // Guarda o nome do estúdio com a pior média
-        double piorMedia = 10;    // Inicializa com num alto para garantir que vai ser substituído
+        String piorEstudio = "";
+        double piorMedia = 10; // Inicializa com nº alto para garantir que vai ser substituído
 
         int linhaAtual = 0;
 
-        // Percorrer todas as linhas da matriz de filmes
         while (linhaAtual < matriz.length) {
 
-            String estudioAtual = matriz[linhaAtual][5]; // Coluna 5: Estúdio
+            String estudioAtual = matriz[linhaAtual][5];
             boolean jaCalculado = false;
 
-            // Verificar se este estúdio já foi processado
             for (int linhaAnterior = 0; linhaAnterior < linhaAtual; linhaAnterior++) {
                 if (matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
                     jaCalculado = true;
@@ -401,14 +399,11 @@ public class Funcoes {
                 }
             }
 
-            // Se ainda não foi processado, vamos calcular a média
             if (!jaCalculado) {
                 int somaRatings = 0;
                 int contadorFilmes = 0;
-
                 int linhaPesquisa = 0;
 
-                // Percorrer toda a matriz para somar os ratings deste estúdio
                 while (linhaPesquisa < matriz.length) {
                     if (matriz[linhaPesquisa][5].equalsIgnoreCase(estudioAtual)) {
                         somaRatings += Double.parseDouble(matriz[linhaPesquisa][2]); // Coluna 2: rating
@@ -419,7 +414,6 @@ public class Funcoes {
 
                 double mediaEstudio = somaRatings / contadorFilmes;
 
-                // Atualizar se esta média for pior do que a atual
                 if (mediaEstudio < piorMedia) {
                     piorMedia = mediaEstudio;
                     piorEstudio = estudioAtual;
@@ -429,7 +423,6 @@ public class Funcoes {
             linhaAtual++;
         }
 
-        // Imprimir o estúdio com pior média
         System.out.println("\nPior estúdio: " + piorEstudio + " (" + piorMedia + ")");
     }
 
@@ -480,8 +473,8 @@ public class Funcoes {
     }
 
     /**
-     * Função que permite mostrar o conteúdo do quizz e armazenar respostas
-     * @param matrizQuiz
+     * Função que permite mostrar o conteúdo do quizz e armazenar respostas do utilizador.
+     * @param matrizQuiz com perguntas, opções de resposta possiveis e resposta certa.
      */
     public static void executarQuiz(String[][] matrizQuiz) {
         Scanner input = new Scanner(System.in);
@@ -497,6 +490,7 @@ public class Funcoes {
             System.out.println("4. " + matrizQuiz[i][4]);
 
             int respostaUtilizador;
+
             do {
                 System.out.print("Escolhe a opção (1-4): ");
                 respostaUtilizador = input.nextInt();
@@ -508,7 +502,7 @@ public class Funcoes {
                 pontuacao++;
                 System.out.println("\nAcertou!\n");
             } else {
-                System.out.println("\nErrado. Resposta correta: " + respostaCorreta + ". " + matrizQuiz[i][respostaCorreta] + "\n");
+                System.out.println("\nErrado. Resposta correta: " + respostaCorreta + ". " + matrizQuiz[i][respostaCorreta - 1] + "\n");
             }
         }
 
