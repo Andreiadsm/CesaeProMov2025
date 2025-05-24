@@ -27,7 +27,7 @@ public class Funcoes {
     }
 
     /**
-     * Função que carrega os dados de login (username e password) para uma matriz
+     * Função que carrega um ficheiro para uma matriz
      */
     public static String[][] ficheiroParaMatrizLogins(String caminho) throws FileNotFoundException {
         int totalLinhas = contarLinhas(caminho);
@@ -104,9 +104,9 @@ public class Funcoes {
 
         do {
             System.out.println("\n*-*-*-* MENU ADMIN *-*-*-*");
-            System.out.println("1. Consulta de Ficheiros");
+            System.out.println("1. Imprimir Ficheiros");
             System.out.println("2. Total de Ratings");
-            System.out.println("3. Imprimir Todos os Estúdios");
+            System.out.println("3. Imprimir Estúdios");
             System.out.println("0. Sair");
             System.out.print("Opção: ");
             opcao = input.nextInt();
@@ -114,7 +114,7 @@ public class Funcoes {
 
             switch (opcao) {
                 case 1:
-                    consultaFicheiros(matrizFilmes);
+                    imprimirFicheiros(matrizFilmes);
                     break;
                 case 2:
                     totalRatings(matrizFilmes);
@@ -123,7 +123,7 @@ public class Funcoes {
                     imprimirEstudios(matrizFilmes);
                     break;
                 case 0:
-                    System.out.println("A sair do menu ADMIN.");
+                    System.out.println("Saiu do menu ADMIN.");
                     break;
                 default:
                     System.out.println("Opção inválida.");
@@ -135,7 +135,7 @@ public class Funcoes {
     /**
      * Função que imprime o conteúdo da matriz de filmes
      */
-    public static void consultaFicheiros(String[][] matriz) {
+    public static void imprimirFicheiros(String[][] matriz) {
         for (int linha = 0; linha < matriz.length; linha++) {
             for (int coluna = 0; coluna < matriz[0].length; coluna++) {
                 System.out.print(matriz[linha][coluna] + " | ");
@@ -255,8 +255,7 @@ public class Funcoes {
                     // imprimirCatalogoCategoria;
                     break;
                 case 0:
-                    System.out.println("A sair do menu CLIENTE.");
-                    //imprimir copyright
+                    imprimirCopyright("Ficheiros/IMDV_Copyright.txt");
                     break;
                 default:
                     System.out.println("Opção inválida.");
@@ -281,7 +280,7 @@ public class Funcoes {
     public static void imprimirCatalogoGrafico() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("\n*-*-*-* Catálogos Gráficos Disponíveis *-*-*-*");
+        System.out.println("\n*-*-*-* Catálogos Gráficos Disponíveis *-*-*-*\n");
         System.out.println("1. Harry Potter");
         System.out.println("2. Interstellar");
         System.out.println("3. Lord of The Rings");
@@ -361,7 +360,7 @@ public class Funcoes {
                     linhaPesquisa++;
                 }
 
-                double mediaEstudio = (double) somaRatings / contadorFilmes;
+                double mediaEstudio = somaRatings / contadorFilmes;
 
                 // Atualizar se este estúdio tiver uma média melhor
                 if (mediaEstudio > melhorMedia) {
@@ -418,7 +417,7 @@ public class Funcoes {
                     linhaPesquisa++;
                 }
 
-                double mediaEstudio = (double) somaRatings / contadorFilmes;
+                double mediaEstudio = somaRatings / contadorFilmes;
 
                 // Atualizar se esta média for pior do que a atual
                 if (mediaEstudio < piorMedia) {

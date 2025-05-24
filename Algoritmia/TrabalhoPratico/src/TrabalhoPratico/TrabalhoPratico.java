@@ -7,7 +7,7 @@ import static TrabalhoPratico.Funcoes.*;// invocar diretamente as funções
 public class TrabalhoPratico {
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner input = new Scanner(System.in); // Ferramenta para ler dados do utilizador
+        Scanner input = new Scanner(System.in);
 
         String tipoUtilizador = "";
 
@@ -53,9 +53,6 @@ public class TrabalhoPratico {
             String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
             String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/Quiz.csv");
             menuCliente(filmes, quiz);
-
-            imprimirCopyright("Ficheiros/IMDV_Copyright.txt");
-
         }
     }
 }
