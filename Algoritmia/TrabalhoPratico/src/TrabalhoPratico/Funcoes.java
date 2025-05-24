@@ -84,7 +84,7 @@ public class Funcoes {
     }
 
     /**
-     * Função que verifica se o login existe na matriz
+     * Função que valida o login na matriz
      */
     public static boolean validarLogin(String[][] matriz, String username, String password) {
         for (int i = 0; i < matriz.length; i++) {
@@ -164,18 +164,18 @@ public class Funcoes {
             // Obtemos o nome do estúdio na linha atual
             String estudioAtual = matriz[linha][5]; // Coluna 5 = estúdio
 
-            // Variável para saber se já imprimimos este estúdio
-            boolean jaImprimimos = false;
+            // Variável para saber se já imprimi este estúdio
+            boolean jaImprimi= false;
 
             for (int anterior = 0; anterior < linha; anterior++) {
                 if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
-                    jaImprimimos = true;
+                    jaImprimi= true;
                     break; // impresso sai do ciclo
                 }
             }
 
-            // Se ainda não imprimimos, mostramos no ecrã
-            if (!jaImprimimos) {
+            // Se ainda não imprimi, mostra no ecrã
+            if (!jaImprimi) {
                 System.out.println("- " + estudioAtual);
             }
         }
@@ -249,10 +249,10 @@ public class Funcoes {
                     executarQuiz(matrizQuiz);
                     break;
                 case 8:
-                    // catalogoEstudioFormatado;
+                    imprimirCatalogoEstudio(matrizFilmes);
                     break;
                 case 9:
-                    // imprimirCatalogoCategoria;
+                    imprimirCatalogoGenero(matrizFilmes);
                     break;
                 case 0:
                     imprimirCopyright("Ficheiros/IMDV_Copyright.txt");
@@ -263,7 +263,9 @@ public class Funcoes {
 
         } while (opcao != 0);
     }
-
+    /**
+     * Função que imprime o catálogo de filmes
+     */
     public static void imprimirCatalogo(String[][] matriz) {
         System.out.println("\n-*-*-* Catálogo de Filmes Avaliados *-*-*-\n");
 
@@ -275,7 +277,7 @@ public class Funcoes {
     }
 
     /**
-     * Função que imprime a arte gráfica de um dos filmes disponíveis
+     * Função que imprime a arte gráfica de um dos filmes disponíveis do catalogo gráfico
      */
     public static void imprimirCatalogoGrafico() throws FileNotFoundException {
         Scanner input = new Scanner(System.in);
@@ -320,13 +322,13 @@ public class Funcoes {
     }
 
     /**
-     * Função que determinao estúdio com maior média de avaliação
-     * @param matriz com 8 colunas, onde a coluna 2 indica o rating e a coluna5 o estudio
+     * Função que determina o estúdio com melhor média de avaliação
+     * @param matriz matriz de filmes com 8 colunas onde a 5 corresponde ao estudio e a 2 corresponde ao rating
      */
     public static void imprimirMelhorEstudio(String[][] matriz) {
 
         String melhorEstudio = "";
-        double melhorMedia = -1;   // Inicializado a -1 para garantir que qualquer média será maior
+        double melhorMedia = 0;
 
         int linhaAtual = 0;
 
@@ -340,18 +342,17 @@ public class Funcoes {
             for (int linhaAnterior = 0; linhaAnterior < linhaAtual; linhaAnterior++) {
                 if (matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
                     jaCalculado = true;
-                    break;
                 }
             }
 
-            // Se ainda não foi calculado, processa este estúdio
+            // Se ainda não foi calculado, processa o estúdio
             if (!jaCalculado) {
                 int somaRatings = 0;
                 int contadorFilmes = 0;
 
                 int linhaPesquisa = 0;
 
-                // Percorrer novamente a matriz para somar os ratings deste estúdio
+                // Percorrer novamente a matriz para somar os ratings do estúdio
                 while (linhaPesquisa < matriz.length) {
                     if (matriz[linhaPesquisa][5].equalsIgnoreCase(estudioAtual)) {
                         somaRatings += Double.parseDouble(matriz[linhaPesquisa][2]);
@@ -511,7 +512,7 @@ public class Funcoes {
 
     /**
      * Função que permite imprimir o copyright ao sair do menu cliente.
-     * @param caminho
+     * @param caminho ficheiro copyright
      * @throws FileNotFoundException
      */
     public static void imprimirCopyright(String caminho) throws FileNotFoundException {
@@ -521,6 +522,100 @@ public class Funcoes {
         System.out.println("");
         while (sc.hasNextLine()) {
             System.out.println(sc.nextLine());
+        }
+    }
+
+
+    /**
+     * Função que imprime o catálogo de um estúdio, agrupando os filmes por género.
+     * A estrutura segue o modelo visual apresentado no enunciado.
+     *
+     * @param matriz Matriz de filmes
+     */
+    public static void imprimirCatalogoEstudio(String[][] matriz) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Estúdio a pesquisar: ");
+        String estudio = input.nextLine();
+
+        System.out.println();
+        System.out.println("**** " + estudio + " *****\n");
+        System.out.println();
+
+        for (int linha = 0; linha < matriz.length; linha++) {
+            String estudioAtual = matriz[linha][5];
+
+            if (estudioAtual.equalsIgnoreCase(estudio)) {
+                String generoAtual = matriz[linha][7]; // Última coluna = género
+                boolean jaImprimi = false;
+
+                for (int linhaAnterior = 0; linhaAnterior < linha; linhaAnterior++) {
+                    if (matriz[linhaAnterior][5].equalsIgnoreCase(estudio) && matriz[linhaAnterior][7].equalsIgnoreCase(generoAtual)) {
+                        jaImprimi = true;
+                        break;
+                    }
+                }
+
+                if (!jaImprimi) {
+                    System.out.println(" __ " + generoAtual + " __ ");
+
+                    for (int linhaFilme = 0; linhaFilme < matriz.length; linhaFilme++) {
+                        if (matriz[linhaFilme][5].equalsIgnoreCase(estudio) &&
+                                matriz[linhaFilme][7].equalsIgnoreCase(generoAtual)) {
+                            System.out.println("> " + matriz[linhaFilme][1]); // Coluna 1 = Título
+                        }
+                    }
+
+                    System.out.println();
+                }
+            }
+        }
+    }
+
+    /**
+     * Função que imprime o catálogo de um género (categoria), agrupando os filmes por estúdio, com formatação visual.
+     *
+     * @param matriz Matriz de filmes
+     */
+    public static void imprimirCatalogoGenero(String[][] matriz) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Género a pesquisar: ");
+        String genero = input.nextLine();
+
+        System.out.println();
+        System.out.println("****" + genero + " ****\n");
+        System.out.println();
+
+        for (int linha = 0; linha < matriz.length; linha++) {
+            String generoAtual = matriz[linha][7]; // Coluna 7: género
+
+            if (generoAtual.equalsIgnoreCase(genero)) {
+                String estudioAtual = matriz[linha][5]; // Coluna 5: estúdio
+                boolean jaImprimi = false;
+
+                // Verificar se já imprimi esse estúdio
+                for (int linhaAnterior = 0; linhaAnterior < linha; linhaAnterior++) {
+                    if (matriz[linhaAnterior][7].equalsIgnoreCase(genero) && matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
+                        jaImprimi = true;
+                        break;
+                    }
+                }
+
+                // Se ainda não imprimi este estúdio para este género
+                if (!jaImprimi) {
+                    System.out.println("__ " + estudioAtual + " __");
+
+                    for (int linhaFilme = 0; linhaFilme < matriz.length; linhaFilme++) {
+                        if (matriz[linhaFilme][7].equalsIgnoreCase(genero) &&
+                                matriz[linhaFilme][5].equalsIgnoreCase(estudioAtual)) {
+                            System.out.println("> " + matriz[linhaFilme][1]); // Coluna 1: título
+                        }
+                    }
+
+                    System.out.println();
+                }
+            }
         }
     }
 }
