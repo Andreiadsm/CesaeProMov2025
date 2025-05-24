@@ -47,7 +47,6 @@ public class Funcoes {
 
             linhaAtual++;
         }
-
         return matrizLogins;
     }
 
@@ -59,7 +58,9 @@ public class Funcoes {
      * @throws FileNotFoundException Caso o ficheiro não exista
      */
     public static String[][] ficheiroParaMatriz(String caminho) throws FileNotFoundException {
+
         int totalLinhas = contarLinhas(caminho) - 1; // Ignorar cabeçalho
+
         String[][] matriz = new String[totalLinhas][8];
 
         File ficheiro = new File(caminho);
@@ -219,8 +220,8 @@ public class Funcoes {
             System.out.println("5. Imprimir pior estúdio");
             System.out.println("6. Ver critica mais recente");
             System.out.println("7. Fazer Quizz");
-            System.out.println("8. Imprimir catálogo estúdio");
-            System.out.println("9. Imprimir catálogo categoria");
+            System.out.println("8. Imprimir catálogo por estúdio");
+            System.out.println("9. Imprimir catálogo por género");
             System.out.println("0. Sair");
             System.out.print("Opção: ");
             opcao = input.nextInt();
@@ -474,40 +475,45 @@ public class Funcoes {
     }
 
     /**
-     * Função que permite mostrar o conteúdo do quizz e armazenar respostas do utilizador.
-     * @param matrizQuiz com perguntas, opções de resposta possiveis e resposta certa.
+     * Função que apresenta o Quizz e guarda a pontuação do utilizador.
+     *
+     * @param matrizQuiz Matriz com perguntas, opções e a resposta correta.
      */
     public static void executarQuiz(String[][] matrizQuiz) {
         Scanner input = new Scanner(System.in);
-        int pontuacao = 0;
+
+        int pontuacao = 0;//variável pontuação começa a 0
 
         System.out.println("\n-*-*-* QUIZZ IMDV *-*-*-\n");
 
         for (int i = 0; i < matrizQuiz.length; i++) {
+            // Mostrar pergunta
             System.out.println("Pergunta " + (i + 1) + ": " + matrizQuiz[i][0]);
-            System.out.println("1. " + matrizQuiz[i][1]);
-            System.out.println("2. " + matrizQuiz[i][2]);
-            System.out.println("3. " + matrizQuiz[i][3]);
-            System.out.println("4. " + matrizQuiz[i][4]);
 
-            int respostaUtilizador;
+            // Mostrar opções 1 a 4 (colunas 1 a 4)
+            for (int opcao = 1; opcao <= 4; opcao++) {
+                System.out.println(opcao + ". " + matrizQuiz[i][opcao]);
+            }
+
+            int resposta; // variável resposta
 
             do {
-                System.out.print("Indique a sua resposta (1-4): ");
-                respostaUtilizador = input.nextInt();
-            } while (respostaUtilizador < 1 || respostaUtilizador > 4);
+                System.out.print("Escolhe (1-4): ");
+                resposta = input.nextInt();
+            } while (resposta < 1 || resposta > 4);
 
-            int respostaCorreta = Integer.parseInt(matrizQuiz[i][5]);
+            int correta = Integer.parseInt(matrizQuiz[i][5]); //variável com as respostas certas
 
-            if (respostaUtilizador == respostaCorreta) {
-                pontuacao++;
-                System.out.println("\n Certo! \n");
-            } else {
-                System.out.println("\nErrado! Resposta certa é " + respostaCorreta + ": " + matrizQuiz[i][respostaCorreta] + "\n");
+            if (resposta == correta) {//caso a resposta do utilizador for correta
+                pontuacao++; // a pontuação aumenta e imprime mensagem de sucesso
+                System.out.println("Certo!\n");
+            } else { //senão resposta errada e informa a resposta certa
+                System.out.println("Errado! A resposta correta era " + correta + ": " + matrizQuiz[i][correta] + "\n");
             }
         }
 
-        System.out.println("Pontuação final: " + pontuacao + " / " + matrizQuiz.length);
+        // Mostrar pontuação final
+        System.out.println("Pontuação final: " + pontuacao + " de " + matrizQuiz.length);
     }
 
     /**
@@ -524,7 +530,6 @@ public class Funcoes {
             System.out.println(sc.nextLine());
         }
     }
-
 
     /**
      * Função que imprime o catálogo de um estúdio, agrupando os filmes por género.
@@ -552,7 +557,6 @@ public class Funcoes {
                 for (int linhaAnterior = 0; linhaAnterior < linha; linhaAnterior++) {
                     if (matriz[linhaAnterior][5].equalsIgnoreCase(estudio) && matriz[linhaAnterior][7].equalsIgnoreCase(generoAtual)) {
                         jaImprimi = true;
-                        break;
                     }
                 }
 
@@ -565,7 +569,6 @@ public class Funcoes {
                             System.out.println("> " + matriz[linhaFilme][1]); // Coluna 1 = Título
                         }
                     }
-
                     System.out.println();
                 }
             }
