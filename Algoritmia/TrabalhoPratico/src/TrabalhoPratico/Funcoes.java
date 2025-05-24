@@ -198,7 +198,7 @@ public class Funcoes {
         System.out.print("Insira Email: ");
         String email = input.nextLine();
 
-        System.out.println("\nUtilizador Inserido com Sucesso: " + nome + " | " + contacto + " | " + email);
+        System.out.println("\nUtilizador Inserido com Sucesso: Nome " + nome + "Contacto " + contacto + "Email " + email);
     }
 
     /**
@@ -267,12 +267,12 @@ public class Funcoes {
      * Função que imprime o catálogo de filmes
      */
     public static void imprimirCatalogo(String[][] matriz) {
-        System.out.println("\n-*-*-* Catálogo de Filmes Avaliados *-*-*-\n");
+        System.out.println("\n-*-*-* Catálogo de Filmes e Rating *-*-*-\n");
 
         for (int linha = 0; linha < matriz.length; linha++) {
             String titulo = matriz[linha][1];      // Coluna 1: título do filme
             String avaliacao = matriz[linha][2];   // Coluna 2: classificação
-            System.out.println(titulo + " | Avaliação: " + avaliacao);
+            System.out.println(titulo + " | " + avaliacao);
         }
     }
 
@@ -328,7 +328,7 @@ public class Funcoes {
     public static void imprimirMelhorEstudio(String[][] matriz) {
 
         String melhorEstudio = "";
-        double melhorMedia = 0;
+        double melhorMedia = -1;
 
         int linhaAtual = 0;
 
@@ -493,7 +493,7 @@ public class Funcoes {
             int respostaUtilizador;
 
             do {
-                System.out.print("Escolhe a opção (1-4): ");
+                System.out.print("Indique a sua resposta (1-4): ");
                 respostaUtilizador = input.nextInt();
             } while (respostaUtilizador < 1 || respostaUtilizador > 4);
 
@@ -501,9 +501,9 @@ public class Funcoes {
 
             if (respostaUtilizador == respostaCorreta) {
                 pontuacao++;
-                System.out.println("\nAcertou!\n");
+                System.out.println("\n Certo! \n");
             } else {
-                System.out.println("\nErrado. Resposta correta: " + respostaCorreta + ". " + matrizQuiz[i][respostaCorreta - 1] + "\n");
+                System.out.println("\nErrado! Resposta certa é " + respostaCorreta + ": " + matrizQuiz[i][respostaCorreta] + "\n");
             }
         }
 
@@ -535,11 +535,11 @@ public class Funcoes {
     public static void imprimirCatalogoEstudio(String[][] matriz) {
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Estúdio a pesquisar: ");
+        System.out.print("> Estúdio a pesquisar: ");
         String estudio = input.nextLine();
 
         System.out.println();
-        System.out.println("**** " + estudio + " *****\n");
+        System.out.println("> **** " + estudio + " *****\n");
         System.out.println();
 
         for (int linha = 0; linha < matriz.length; linha++) {
@@ -557,7 +557,7 @@ public class Funcoes {
                 }
 
                 if (!jaImprimi) {
-                    System.out.println(" __ " + generoAtual + " __ ");
+                    System.out.println(" >__ " + generoAtual + " __ ");
 
                     for (int linhaFilme = 0; linhaFilme < matriz.length; linhaFilme++) {
                         if (matriz[linhaFilme][5].equalsIgnoreCase(estudio) &&
