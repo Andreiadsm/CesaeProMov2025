@@ -171,7 +171,6 @@ public class Funcoes {
             for (int anterior = 0; anterior < linha; anterior++) {
                 if (matriz[anterior][5].equalsIgnoreCase(estudioAtual)) {
                     jaImprimi= true;
-                    break; // impresso sai do ciclo
                 }
             }
 
@@ -397,7 +396,6 @@ public class Funcoes {
             for (int linhaAnterior = 0; linhaAnterior < linhaAtual; linhaAnterior++) {
                 if (matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
                     jaCalculado = true;
-                    break;
                 }
             }
 
@@ -481,39 +479,41 @@ public class Funcoes {
      */
     public static void executarQuiz(String[][] matrizQuiz) {
         Scanner input = new Scanner(System.in);
-
-        int pontuacao = 0;//variável pontuação começa a 0
+        int pontuacao = 0;
 
         System.out.println("\n-*-*-* QUIZZ IMDV *-*-*-\n");
 
-        for (int i = 0; i < matrizQuiz.length; i++) {
-            // Mostrar pergunta
-            System.out.println("Pergunta " + (i + 1) + ": " + matrizQuiz[i][0]);
+        // Percorrer todas as perguntas
+        for (int linha = 0; linha < matrizQuiz.length; linha++) {
+            System.out.println("Pergunta " + (linha + 1)+ ": " +matrizQuiz[linha][0]);
 
-            // Mostrar opções 1 a 4 (colunas 1 a 4)
-            for (int opcao = 1; opcao <= 4; opcao++) {
-                System.out.println(opcao + ". " + matrizQuiz[i][opcao]);
+            // Mostrar as 4 opções de resposta (colunas 1 a 4)
+            for (int coluna = 1; coluna <= 4; coluna++) {
+                System.out.println(coluna + ". " + matrizQuiz[linha][coluna]);
             }
 
-            int resposta; // variável resposta
+            int resposta = 0;
 
-            do {
-                System.out.print("Escolhe (1-4): ");
+            // Validar se a resposta está entre 1 e 4
+            while (resposta < 1 || resposta > 4) {
+                System.out.print("Escolha (1-4): ");
                 resposta = input.nextInt();
-            } while (resposta < 1 || resposta > 4);
+            }
 
-            int correta = Integer.parseInt(matrizQuiz[i][5]); //variável com as respostas certas
+            // Obter resposta certa da matriz (coluna 5)
+            int certa = Integer.parseInt(matrizQuiz[linha][5]);
 
-            if (resposta == correta) {//caso a resposta do utilizador for correta
-                pontuacao++; // a pontuação aumenta e imprime mensagem de sucesso
-                System.out.println("Certo!\n");
-            } else { //senão resposta errada e informa a resposta certa
-                System.out.println("Errado! A resposta correta era " + correta + ": " + matrizQuiz[i][correta] + "\n");
+            // Verificar se o utilizador acertou
+            if (resposta == certa) {
+                pontuacao++;
+                System.out.println("Resposta certa!\n");
+            } else {
+                System.out.println("Errado. A resposta certa é " + certa + ": " + matrizQuiz[linha][5] + "\n");
             }
         }
 
-        // Mostrar pontuação final
-        System.out.println("Pontuação final: " + pontuacao + " de " + matrizQuiz.length);
+        // Mostrar pontuação
+        System.out.println("Pontuação final: " + pontuacao + " / " + matrizQuiz.length);
     }
 
     /**
@@ -543,9 +543,7 @@ public class Funcoes {
         System.out.print("> Estúdio a pesquisar: ");
         String estudio = input.nextLine();
 
-        System.out.println();
-        System.out.println("> **** " + estudio + " *****\n");
-        System.out.println();
+        System.out.println("\n> **** " + estudio + " ****\n");
 
         for (int linha = 0; linha < matriz.length; linha++) {
             String estudioAtual = matriz[linha][5];
@@ -564,8 +562,7 @@ public class Funcoes {
                     System.out.println(" >__ " + generoAtual + " __ ");
 
                     for (int linhaFilme = 0; linhaFilme < matriz.length; linhaFilme++) {
-                        if (matriz[linhaFilme][5].equalsIgnoreCase(estudio) &&
-                                matriz[linhaFilme][7].equalsIgnoreCase(generoAtual)) {
+                        if (matriz[linhaFilme][5].equalsIgnoreCase(estudio) && matriz[linhaFilme][7].equalsIgnoreCase(generoAtual)) {
                             System.out.println("> " + matriz[linhaFilme][1]); // Coluna 1 = Título
                         }
                     }
@@ -586,13 +583,10 @@ public class Funcoes {
         System.out.print("Género a pesquisar: ");
         String genero = input.nextLine();
 
-        System.out.println();
-        System.out.println("****" + genero + " ****\n");
-        System.out.println();
+        System.out.println("\n****" + genero + " ****\n");
 
         for (int linha = 0; linha < matriz.length; linha++) {
             String generoAtual = matriz[linha][7]; // Coluna 7: género
-
             if (generoAtual.equalsIgnoreCase(genero)) {
                 String estudioAtual = matriz[linha][5]; // Coluna 5: estúdio
                 boolean jaImprimi = false;
@@ -601,7 +595,6 @@ public class Funcoes {
                 for (int linhaAnterior = 0; linhaAnterior < linha; linhaAnterior++) {
                     if (matriz[linhaAnterior][7].equalsIgnoreCase(genero) && matriz[linhaAnterior][5].equalsIgnoreCase(estudioAtual)) {
                         jaImprimi = true;
-                        break;
                     }
                 }
 
