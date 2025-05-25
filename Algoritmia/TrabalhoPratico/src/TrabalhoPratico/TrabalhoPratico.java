@@ -19,26 +19,29 @@ public class TrabalhoPratico {
             tipoUtilizador = input.nextLine();
 
             if (!tipoUtilizador.equalsIgnoreCase(admin) && !tipoUtilizador.equalsIgnoreCase(cliente)) {
-                System.out.println("Tipo de utilizador inválido. Tente novamente.\n");
+                System.out.println("Utilizador inválido. Tente novamente.\n");
             }
         }
 
-        // ADMIN
         if (tipoUtilizador.equalsIgnoreCase(admin)) {
-            String username;
-            String password;
             boolean loginValido = false;
 
+            // Repete até o login ser válido
             while (!loginValido) {
                 System.out.print("USERNAME: ");
-                username = input.nextLine();
+                String username = input.nextLine();
 
                 System.out.print("PASSWORD: ");
-                password = input.nextLine();
+                String password = input.nextLine();
 
                 String[][] logins = ficheiroParaMatrizLogins("Ficheiros/IMDV_AdminLogin.csv");
 
-                loginValido = validarLogin(logins, username, password);
+                // Percorrer a matriz para validar login
+                for (int i = 0; i < logins.length; i++) {
+                    if (logins[i][0].equals(username) && logins[i][1].equals(password)) {
+                        loginValido = true;
+                    }
+                }
 
                 if (!loginValido) {
                     System.out.println("Login inválido. Tente novamente.\n");
@@ -50,12 +53,10 @@ public class TrabalhoPratico {
             menuAdmin(filmes);
         }
 
-        // CLIENTE
-        else {
+        else {// utilizador cliente
             String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
             String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/Quiz.csv");
             menuCliente(filmes, quiz);
-            imprimirCopyright("Ficheiros/IMDV_Copyright.txt");
         }
     }
 }
