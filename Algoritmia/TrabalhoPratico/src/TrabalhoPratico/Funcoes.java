@@ -7,10 +7,10 @@ import java.util.Scanner;
 public class Funcoes {
 
     /**
-     * Função que conta quantas linhas tem um ficheiro
+     * Função que carrega o conteúdo de um ficheiro para uma matriz
      *
-     * @param caminho Caminho para o ficheiro
-     * @return Número total de linhas
+     * @param caminho Caminho para o ficheiro a ser carregado
+     * @return String[][] - matriz de Strings com o conteúdo do ficheiro
      * @throws FileNotFoundException Caso o ficheiro não seja encontrado
      */
     public static int contarLinhas(String caminho) throws FileNotFoundException {
@@ -569,7 +569,7 @@ public class Funcoes {
     /**
      * Função que permite imprimir o copyright ao sair do menu cliente.
      * @param caminho ficheiro copyright
-     * @throws FileNotFoundException
+     * @throws FileNotFoundException Caso o ficheiro não seja encontrado
      */
     public static void imprimirCopyright(String caminho) throws FileNotFoundException {
         File ficheiro = new File(caminho);
