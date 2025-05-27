@@ -16,6 +16,6 @@ public class Retangulo {
     }
 
     public double calcularArea() {
-        return this.altura * return.this.largura;
+        return this.altura * this.largura;
     }
 }

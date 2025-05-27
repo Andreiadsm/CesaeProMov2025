@@ -1,14 +1,23 @@
 package Ex04;
 
-public class Ex04 {
+public class Main {
     public static void main(String[] args) {
 
-        Circulo redondo = new Circulo("Amarelo", 5.9);
+        // a) Instanciar dois círculos
+        Circulo c1 = new Circulo("Azul", 3.5);
+        Circulo c2 = new Circulo("Vermelho", 5.0);
 
-        System.out.println("Perimetro: "+redondo.calcularPerimetro(2* 3.14 * 5.9));
-
-        Circulo redondoMaior = new Circulo("Azul", 10.2);
-
-        System.out.println("Área: "+ redondo.calcularArea(3.14* 10.2 * 10.2));
+        // b) Verificar qual tem o maior raio e imprimir só os dados desse
+        if (c1.getRaio() > c2.getRaio()) {
+            System.out.println("Círculo maior:");
+            System.out.println("Perímetro: " + c1.calcularPerimetro());
+            System.out.println("Área: " + c1.calcularArea());
+        } else {
+            System.out.println("Círculo maior:");
+            System.out.println("Perímetro: " + c2.calcularPerimetro());
+            System.out.println("Área: " + c2.calcularArea());
+        }
     }
 }
+
+
