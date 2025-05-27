@@ -7,41 +7,36 @@ import static TrabalhoPratico.Funcoes.*;// invocar diretamente as funções
 public class TrabalhoPratico {
     public static void main(String[] args) throws FileNotFoundException {
 
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in); // Ferramenta para ler dados do utilizador
 
-        String admin = "ADMIN";
-        String cliente = "CLIENTE";
         String tipoUtilizador = "";
 
-        // Repete enquanto o tipo não for válido
-        while (!tipoUtilizador.equalsIgnoreCase(admin) && !tipoUtilizador.equalsIgnoreCase(cliente)) {
+        // Repetir enquanto o tipo não for válido
+        while (!tipoUtilizador.equalsIgnoreCase("ADMIN") && !tipoUtilizador.equalsIgnoreCase("CLIENTE")) {
             System.out.print("Tipo de Utilizador (ADMIN || CLIENTE): ");
             tipoUtilizador = input.nextLine();
 
-            if (!tipoUtilizador.equalsIgnoreCase(admin) && !tipoUtilizador.equalsIgnoreCase(cliente)) {
-                System.out.println("Utilizador inválido. Tente novamente.\n");
+            if (!tipoUtilizador.equalsIgnoreCase("ADMIN") && !tipoUtilizador.equalsIgnoreCase("CLIENTE")) {
+                System.out.println("Tipo de utilizador inválido. Tente novamente.\n");
             }
         }
 
-        if (tipoUtilizador.equalsIgnoreCase(admin)) {
+        // Se o utilizador for ADMIN
+        if (tipoUtilizador.equalsIgnoreCase("ADMIN")) {
+            String username;
+            String password;
             boolean loginValido = false;
 
-            // Repete até o login ser válido
             while (!loginValido) {
                 System.out.print("USERNAME: ");
-                String username = input.nextLine();
+                username = input.nextLine();
 
                 System.out.print("PASSWORD: ");
-                String password = input.nextLine();
+                password = input.nextLine();
 
                 String[][] logins = ficheiroParaMatrizLogins("Ficheiros/IMDV_AdminLogin.csv");
 
-                // Percorrer a matriz para validar login
-                for (int i = 0; i < logins.length; i++) {
-                    if (logins[i][0].equals(username) && logins[i][1].equals(password)) {
-                        loginValido = true;
-                    }
-                }
+                loginValido = validarLogin(logins, username, password);
 
                 if (!loginValido) {
                     System.out.println("Login inválido. Tente novamente.\n");
@@ -49,14 +44,16 @@ public class TrabalhoPratico {
             }
 
             System.out.println("Login com sucesso!\n");
+
             String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
             menuAdmin(filmes);
-        }
 
-        else {// utilizador cliente
-            String[][] filmes = ficheiroParaMatriz("Ficheiros/IMDV.csv");
-            String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/Quiz.csv");
-            menuCliente(filmes, quiz);
+        } else { // é ClIENTE
+            String[][] filmes = ficheiroParaMatriz();
+            menuCliente(filmes);
+
+            String[][] quiz = ficheiroParaMatrizQuiz("Ficheiros/IMDV_Quiz.csv");
+
         }
     }
 }
