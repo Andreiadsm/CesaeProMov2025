@@ -14,7 +14,8 @@ public class ContaBancaria {
 
     /**
      * Método construtor para <b>Conta Bancária</b>
-     * @param iban IBAN - Identificador da <b>Conta Bancária</b>
+     *
+     * @param iban    IBAN - Identificador da <b>Conta Bancária</b>
      * @param titular Nome do Titular
      */
     public ContaBancaria(String iban, String titular) {
@@ -24,6 +25,7 @@ public class ContaBancaria {
 
     /**
      * Método para depositar dinheiro
+     *
      * @param valor Valor a depositar (€)
      */
     public void depositar(double valor) {
@@ -33,6 +35,7 @@ public class ContaBancaria {
 
     /**
      * Método para levantar dinheiro
+     *
      * @param valor Valor a levantar (€)
      */
     public void levantar(double valor) {
@@ -70,26 +73,32 @@ public class ContaBancaria {
     /**
      * Método para pedir empréstimo
      */
-    public ContaBancaria pedirEmprestimo(double valorEmprestimo){
+    public void pedirEmprestimo(double valorEmprestimo) {
         double limite = this.saldo * this.margemEmpréstimo;
-        if (valorEmprestimo> limite || this.valorDivida<0){
-            System.out.println("Empréstimo recusado. O valor pedido "+valorEmprestimo +" é demasiado elevado face ao limite de " + limite + ". ");
+
+        if (this.valorDivida > 0) {
+            System.out.println("Empréstimo recusado. Já existe um valor em dívida: " + this.valorDivida + "€.");
+        } else if (valorEmprestimo > limite) {
+            System.out.println("Empréstimo recusado. O valor pedido (" + valorEmprestimo + "€) excede o limite de " + limite + "€.");
         } else {
             this.saldo += valorEmprestimo;
-            this.valorDivida += valorEmprestimo;
-            System.out.println("Empréstimo confirmado. Novo Saldo " + this.saldo + "€." +" e valor em divida de " + valorDivida + "€.");
+            this.valorDivida = valorEmprestimo;
+            System.out.println("Empréstimo concedido: " + valorEmprestimo + "€. Novo saldo: " + this.saldo + "€. Dívida atual: " + this.valorDivida + "€.");
         }
-        return this;
     }
 
-    public ContaBancaria amortizarEmprestimo( int valorAmortizar){
-        if (this.valorDivida > valorAmortizar || this.saldo> valorAmortizar){
-            this.saldo-=valorAmortizar;
-            this.valorDivida-= valorAmortizar;
-            System.out.println("Amortização de " + valorAmortizar +"€"+ " confirmada.");
+
+    public void amortizarEmprestimo(double valorAmortizar) {
+        if (this.valorDivida == 0) {
+            System.out.println("Não existe dívida para amortizar.");
+        } else if (valorAmortizar > this.valorDivida) {
+            System.out.println("Erro: valor a amortizar (" + valorAmortizar + "€) é superior à dívida (" + this.valorDivida + "€).");
+        } else if (valorAmortizar > this.saldo) {
+            System.out.println("Erro: saldo insuficiente (" + this.saldo + "€) para amortizar " + valorAmortizar + "€.");
         } else {
-            System.out.println("Erro. Operação recusada. Saldo insuficiente de "+this.saldo +"€ " + "para amortizar "+valorAmortizar +"€.");
+            this.saldo -= valorAmortizar;
+            this.valorDivida -= valorAmortizar;
+            System.out.println("Amortização confirmada: " + valorAmortizar + "€. Saldo atual: " + this.saldo + "€. Dívida restante: " + this.valorDivida + "€.");
         }
-        return this;
     }
 }
