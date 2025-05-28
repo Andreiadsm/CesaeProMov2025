@@ -1,4 +1,4 @@
-package Ex05;
+package Ex01;
 
 public class Carro {
     private String marca;

@@ -15,28 +15,8 @@ public class Livro {
         this.ISBN = ISBN;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public int getNumPaginas() {
-        return numPaginas;
-    }
-
-    public int getISBN() {
-        return ISBN;
-    }
-
     public void exibirDetalhes() {
-        System.out.println("Título: " + titulo + " | Autor: " + autor + " | Categoria: " + categoria + " | Nº de Páginas: " + numPaginas + " | ISBN: " + ISBN);
+        System.out.println("Título: " + this.titulo + " | Autor: " + this.autor + " | Categoria: " + this.categoria + " | Nº de Páginas: " + this.numPaginas + " | ISBN: " + this.ISBN);
     }
 
 }

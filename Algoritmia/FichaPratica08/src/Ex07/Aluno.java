@@ -61,7 +61,13 @@ public class Aluno { //atributos privados do aluno
 
     // Metodo que verifica se o aluno está aprovado com base na média
     public boolean mediaAprovacao() {
-        return media > 9.5;
+        if (this.media >= 9.5) {
+            System.out.println(this.nome + " : aprovado.");
+            return true;
+        } else {
+            System.out.println(this.nome + " : reprovado.");
+            return false;
+        }
     }
 
     // Metodo que imprime todos os dados do aluno no formato desejado
