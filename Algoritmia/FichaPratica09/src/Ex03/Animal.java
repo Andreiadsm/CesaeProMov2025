@@ -1,15 +1,14 @@
 package Ex03;
-import java.util.Arrays;
 
 public class Animal {
     private String nome;
     private String especie;
     private String paisOrigem;
-    private double peso; // em Kg
+    private double peso;
     private String[] alimentacao;
     private ClasseReino classeReino;
 
-    // Construtor completo
+    // Construtor
     public Animal(String nome, String especie, String paisOrigem, double peso, String[] alimentacao, ClasseReino classeReino) {
         this.nome = nome;
         this.especie = especie;
@@ -19,53 +18,63 @@ public class Animal {
         this.classeReino = classeReino;
     }
 
-    // Metodo que faz barulho consoante a classe do reino
+    // Método que faz barulho com switch-case
     public void fazerBarulho() {
+        System.out.print("O " + especie + " " + nome + " faz barulho: ");
         switch (classeReino) {
-            case MAMIFERO -> System.out.println("Tininonini");
-            case ANFIBIO -> System.out.println("Brrrrrr");
-            case AVE -> System.out.println("Kwak Kwak");
-            case PEIXE -> System.out.println("Blub Blub Splash");
-            case REPTIL -> System.out.println("Psssssss");
+            case MAMIFERO:
+                System.out.println("Tininoninoni");
+                break;
+            case ANFIBIO:
+                System.out.println("Brrrrrr");
+                break;
+            case AVE:
+                System.out.println("Kwak Kwak");
+                break;
+            case PEIXE:
+                System.out.println("Blub Blub Splash");
+                break;
+            case REPTIL:
+                System.out.println("Psssssss");
+                break;
+            default:
+                System.out.println("Som desconhecido");
         }
     }
 
     // Metodo para comer
     public void comer(String alimento, double pesoGramas) {
-        boolean podeComer = false;
+        boolean gostou = false;
 
-        // Percorremos o array
         for (int i = 0; i < alimentacao.length; i++) {
             if (alimentacao[i].equalsIgnoreCase(alimento)) {
-                podeComer = true;
+                gostou = true;
             }
         }
 
-        if (podeComer) {
-            double pesoKg = pesoGramas / 1000.0;
-            this.peso += pesoKg;
-            System.out.println("O " + especie + " " + nome + " comeu " + alimento + ".");
+        if (gostou) {
+            this.peso += pesoGramas/ 1000;//para passar gr para kg
+            System.out.println("O " + especie + " " + nome + " comeu " + alimento + " e agora pesa " + this.peso + " kg.");
             fazerBarulho();
         } else {
-            System.out.println("O " + especie + " " + nome + " não comeu " + alimento + ".");
+            System.out.println("O " + especie + " " + nome + " não comeu " + alimento + " porque não gosta.");
         }
     }
 
-
-    // Mostrar dados do animal
+    // Mostrar detalhes
     public void exibirDetalhes() {
-        System.out.print("Nome: " + nome + " | Espécie: " + especie + " | País: " + paisOrigem + " | Peso: " + peso + " kg" + " | Classe: " + classeReino + " | Alimentação: ");
-
-        // Mostrar manualmente os alimentos
+        System.out.print("Nome: " + nome + " | Espécie: " + especie + " | País: " + paisOrigem +
+                " | Peso: " + peso + " kg | Classe: " + classeReino + " | Alimentação: ");
         for (int i = 0; i < alimentacao.length; i++) {
             System.out.print(alimentacao[i]);
             if (i < alimentacao.length - 1) {
                 System.out.print(", ");
             }
         }
-        System.out.println(); // para nova linha no fim
+        System.out.println(); // nova linha
     }
 
+    // Getter do peso
     public double getPeso() {
         return peso;
     }

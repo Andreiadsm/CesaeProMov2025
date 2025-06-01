@@ -5,9 +5,9 @@ public class Pessoa {
     private int idade;
     private String cidade;
     private String email;
-    private String telemovel;
+    private int telemovel;
 
-    public Pessoa(String nome, int idade, String cidade, String email, String telemovel) {
+    public Pessoa(String nome, int idade, String cidade, String email, int telemovel) {
         this.nome = nome;
         this.idade = idade;
         this.cidade = cidade;
@@ -20,8 +20,7 @@ public class Pessoa {
     }
 
     public void exibirDetalhes() {
-        System.out.println("Nome: " + nome + " | Idade: " + idade + " | Cidade: " + cidade +
-                " | Email: " + email + " | Telemóvel: " + telemovel);
+        System.out.println(nome + " | Idade: " + idade + " | Cidade: " + cidade + " | Email: " + email + " | Telemóvel: " + telemovel);
     }
 }
 

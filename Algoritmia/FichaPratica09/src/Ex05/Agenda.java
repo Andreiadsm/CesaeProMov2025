@@ -5,16 +5,16 @@ public class Agenda {
     private Pessoa[] listaContactos;
     private int totalContactos = 0;
 
-    public Agenda(int tamanho) {
-        listaContactos = new Pessoa[tamanho];
+    public Agenda(int tamanhoLista) {
+        listaContactos = new Pessoa[tamanhoLista];
     }
 
-    public void adicionarPessoa(Pessoa pessoa) {
+    public void adicionarPessoa(Pessoa novaPessoa) {
         if (totalContactos < listaContactos.length) {
-            listaContactos[totalContactos] = pessoa;
+            listaContactos[totalContactos] = novaPessoa;
             totalContactos++;
         } else {
-            System.out.println("Agenda cheia! Não é possível adicionar mais contactos.");
+            System.out.println("Agenda cheia. Não é possível adicionar mais contactos.");
         }
     }
 
@@ -25,7 +25,7 @@ public class Agenda {
         }
     }
 
-    public void pesquisarContactos(String cidadePesquisa) {
+    public void pesquisarCidade (String cidadePesquisa) {
         System.out.println("Contactos da cidade: " + cidadePesquisa);
         for (int i = 0; i < totalContactos; i++) {
             if (listaContactos[i].getCidade().equalsIgnoreCase(cidadePesquisa)) {
