@@ -1,5 +1,5 @@
 package Pizzaria_Enums;
 
-public enum tamanhoPizza {
+public enum TamanhoPizza {
     PEQUENA, MEDIA, GRANDE
 }

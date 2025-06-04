@@ -1,5 +1,5 @@
 package Pizzaria_Enums;
 
-public enum unidadeMedida {
+public enum UnidadeMedida {
     GRAMAS, LITROS, UNIDADES
 }
