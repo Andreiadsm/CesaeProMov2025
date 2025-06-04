@@ -2,13 +2,13 @@ package Ex03;
 
 public class Peixe {
     private String especie;
-    private double peso;
-    private double precoKg;
+    private double pesoKg;
+    private double preco;
 
     public Peixe(String especie, double peso, double precoKg) {
         this.especie = especie;
-        this.peso = peso;
-        this.precoKg = precoKg;
+        this.pesoKg = peso;
+        this.preco = precoKg;
     }
 
     public String getEspecie() {
@@ -16,15 +16,15 @@ public class Peixe {
     }
 
     public double getValorTotal() {
-        return peso * precoKg;
+        return pesoKg * preco;
     }
 
     public double getPeso() {
-        return peso;
+        return pesoKg;
     }
 
     public void exibirDetalhes() {
-        System.out.println("Peixe: " + especie + " | Peso: " + peso + " kg | Preço/Kg: " + precoKg + " €");
+        System.out.println("Peixe: " + especie + " | Peso: " + pesoKg + " kg | Preço/Kg: " + preco + " €");
     }
 
 }
