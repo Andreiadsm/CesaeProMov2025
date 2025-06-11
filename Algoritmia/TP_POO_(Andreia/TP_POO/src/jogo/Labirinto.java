@@ -8,8 +8,16 @@ import itens.Pocao;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Classe responsável por criar o labirinto do jogo e gerir a lógica da exploração.
+ */
 public class Labirinto {
-
+    /**
+     * Cria a estrutura inicial do labirinto.
+     * Define salas, ligações, armadilhas, inimigos e vendedores.
+     *
+     * @return Sala inicial do labirinto.
+     */
     public static Sala criarLabirinto() {
         Sala entrada = new Sala("Entrada do Labirinto");
         Sala folhas = new Sala("Sala das Folhas");
@@ -44,7 +52,14 @@ public class Labirinto {
 
         return entrada;
     }
-
+    /**
+     * Inicia a exploração do labirinto a partir de uma sala inicial.
+     * O herói encontra armadilhas, vendedor, combates, e escolhe o caminho a seguir.
+     * O jogo termina se o herói morrer ou derrotar inimigos e chegar à sala final, vencendo assim o jogo.
+     *
+     * @param heroi      Herói jogável que explora o labirinto.
+     * @param salaAtual  Sala onde o herói começa.
+     */
     public static void iniciarLabirinto(Heroi heroi, Sala salaAtual) {
         Scanner scanner = new Scanner(System.in);
 
@@ -138,7 +153,7 @@ public class Labirinto {
                     if (inimigo.estaViva()) {
                         inimigo.atacar(heroi);
                         if (!heroi.estaViva()) {
-                            System.out.println("Foste derrotado. O labirinto venceu.");
+                            System.out.println(" \\u274C Foste derrotado. O labirinto venceu.");
                             return;
                         }
 
