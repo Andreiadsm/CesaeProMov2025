@@ -1,54 +1,48 @@
 package jogo;
+import itens.ItemHeroi;
 
-import entidades.Heroi;
-import entidades.NPC;
-import entidades.TipoHeroi;
-import entidades.Vendedor;
-import itens.*;
+import entidades.*;
+import itens.Consumivel;
+import itens.Pocao;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Labirinto {
 
     public static Sala criarLabirinto() {
-        ArrayList<Sala> todasAsSalas = new ArrayList<>();
-        Sala entrada = new Sala("Entrada do Labirinto");
-        todasAsSalas.add(entrada);
+        // Nível 0 (início)
+        Sala entrada = new Sala("🌟 Entrada do Labirinto");
 
-        int numeroDeSalas = 6 + new java.util.Random().nextInt(3); // 6 a 8 salas
+        // Nível 1
+        Sala sala1A = new Sala(" Sala das Folhas");
+        Sala sala1B = new Sala("Sala das Chamas");
 
-        for (int i = 1; i < numeroDeSalas; i++) {
-            Sala sala = new Sala("Sala " + i);
+        // Nível 2
+        Sala sala2A = new Sala("Sala Sombria");
+        Sala sala2B = new Sala("Sala Elétrica");
+        Sala sala2C = new Sala("Sala Submersa");
+        Sala sala2D = new Sala("Sala Congelada");
 
-            // Armadilha aleatória
-            if (Math.random() < 0.5) {
-                sala.setDanoArmadilha(5 + new java.util.Random().nextInt(16)); // 5 a 20
-            }
+        // Conexões binárias (sempre 2 por sala)
+        entrada.adicionarLigacao(sala1A);
+        entrada.adicionarLigacao(sala1B);
 
-            // Inimigo aleatório
-            if (Math.random() < 0.6) {
-                NPC inimigo = new NPC("Inimigo " + i, 40, 6, 10);
-                sala.adicionarInimigo(inimigo);
-            }
+        sala1A.adicionarLigacao(sala2A);
+        sala1A.adicionarLigacao(sala2B);
 
-            // Vendedor aleatório (máximo 1 vendedor por labirinto)
-            if (Math.random() < 0.3 && !jaTemVendedor(todasAsSalas)) {
-                sala.setVendedor(Vendedor.criarVendedorInicial());
-            }
+        sala1B.adicionarLigacao(sala2C);
+        sala1B.adicionarLigacao(sala2D);
 
-            todasAsSalas.add(sala);
-        }
+        // Conteúdo das salas
+        sala1A.setDanoArmadilha(10);
+        sala1B.adicionarInimigo(new NPC("Esqueleto Flamejante", 30, 5, 10));
 
-        // Conectar salas linearmente (com possíveis atalhos)
-        for (int i = 0; i < todasAsSalas.size() - 1; i++) {
-            Sala atual = todasAsSalas.get(i);
-            Sala proxima = todasAsSalas.get(i + 1);
-            atual.adicionarLigacao(proxima);
+        sala2A.adicionarOuro(15);
+        sala2B.setVendedor(Vendedor.criarVendedorInicial());
 
-            if (i + 2 < todasAsSalas.size() && Math.random() < 0.3) {
-                atual.adicionarLigacao(todasAsSalas.get(i + 2));
-            }
-        }
+        sala2C.adicionarInimigo(new NPC("Serpente Marinha", 35, 6, 12));
+        sala2D.setItemEscondido(new Pocao("Poção Congelante", 20, 40, 0, new ArrayList<>()));
 
         return entrada;
     }
@@ -57,37 +51,32 @@ public class Labirinto {
         java.util.Scanner scanner = new java.util.Scanner(System.in);
 
         while (true) {
-            System.out.println("\nEntraste na sala: " + salaAtual.getNome());
+            System.out.println("Entraste na sala: " + salaAtual.getNome());
 
-            // Armadilha
-            if (salaAtual.getDanoArmadilha() > 0) {
-                System.out.println("Armadilha ativada! Perdeste " + salaAtual.getDanoArmadilha() + " de vida.");
-                heroi.receberDano(salaAtual.getDanoArmadilha());
-                if (!heroi.estaViva()) {
-                    System.out.println("☠️ Morreste! Fim da aventura.");
-                    return;
-                }
-            }
-
+            // 🧙 Vendedor
             if (salaAtual.temVendedor()) {
-                System.out.println("Encontraste um vendedor com itens à venda!");
+                System.out.println("Encontraste um vendedor!");
                 salaAtual.getVendedor().vender(heroi);
             }
 
+            // Inimigos
             if (!salaAtual.getInimigos().isEmpty()) {
                 for (NPC inimigo : salaAtual.getInimigos()) {
-                    System.out.println("👹 Inimigo encontrado: " + inimigo.getNome());
+                    System.out.println("Inimigo encontrado: " + inimigo.getNome());
                     heroi.atacar(inimigo);
+                    if (!heroi.estaViva()) {
+                        System.out.println("Foste derrotado pelo inimigo.");
+                        return;
+                    }
                 }
             }
 
-            // Verificar se é a última sala
+            // Escolher próximo caminho
             if (salaAtual.getLigacoes().isEmpty()) {
-                System.out.println("Parabéns! Chegaste ao fim do labirinto!");
+                System.out.println("🎉 Chegaste ao fim do labirinto!");
                 return;
             }
 
-            // Escolher próxima sala
             System.out.println("\nCaminhos disponíveis:");
             for (int i = 0; i < salaAtual.getLigacoes().size(); i++) {
                 System.out.println("[" + i + "] " + salaAtual.getLigacoes().get(i).getNome());
@@ -97,21 +86,13 @@ public class Labirinto {
             int escolha = scanner.nextInt();
 
             if (escolha < 0 || escolha >= salaAtual.getLigacoes().size()) {
-                System.out.println("\u274C Escolha inválida. Aventura terminada.");
+                System.out.println("Escolha inválida. Aventura terminada.");
                 return;
             }
 
-            // Avançar para a sala escolhida
+            // Avançar
             salaAtual = salaAtual.getLigacoes().get(escolha);
         }
     }
 
-    private static boolean jaTemVendedor(ArrayList<Sala> salas) {
-        for (Sala s : salas) {
-            if (s.temVendedor()) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
