@@ -1,0 +1,280 @@
+/* Reset & Fonte */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #FAF8F2;
+  color: #1A1A1A;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  font-weight: 600;
+  z-index: 10;
+  position: relative;
+}
+.logo {
+  font-size: 1.2rem;
+}
+#menuToggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Desktop Nav */
+#desktopNav {
+  display: none;
+}
+@media(min-width: 768px) {
+  #desktopNav {
+    display: block;
+  }
+  #desktopNav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  #menuToggle {
+    display: none;
+  }
+}
+
+/* Mobile Menu */
+#mobileMenu {
+  position: fixed;
+  inset: 0;
+  background: #1A1A1A;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+#mobileMenu.hidden {
+  display: none;
+}
+#mobileMenu ul {
+  list-style: none;
+  text-align: center;
+}
+#mobileMenu li {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+#closeMenu {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.subhero {
+  font-size: 1rem;
+  color: #6E8B6D;
+  margin-bottom: 2rem;
+}
+.hero-icon {
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Ícone Esquadro */
+.icon-esquadro {
+  width: 32px;
+  height: 32px;
+  fill: #6E8B6D;
+}
+
+/* Secções */
+.section {
+  padding: 4rem 1.5rem;
+}
+.section.light {
+  background-color: #F1EFE9;
+}
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Serviços com ícones */
+.services {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.services li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.service-icon {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.4s ease;
+}
+
+.services li:hover .service-icon {
+  transform: rotate(-8deg) scale(1.2);
+}
+
+.services li:hover {
+  transform: translateY(-2px);
+}
+
+/* Projetos */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+@media(min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.grid img {
+  width: 100%;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+.grid img:hover {
+  transform: scale(1.03);
+}
+
+/* Manifesto */
+.manifesto p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Formulário */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 1rem;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  font-family: inherit;
+}
+.contact-form button {
+  background-color: #6E8B6D;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.contact-form button:hover {
+  background-color: #5d7b5c;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 2rem 1rem;
+  background-color: #FAF8F2;
+}
+
+/* Scroll to top */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: none;
+  z-index: 1000;
+  background: none;
+  border: none;
+}
+.icon-circle {
+  background-color: white;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.icon-circle:hover .icon-esquadro {
+  fill: white;
+}
+.icon-circle:hover {
+  background-color: #6E8B6D;
+}
+
+/* Cursor personalizado (opcional) */
+a, button, .icon-circle {
+  cursor: pointer;
+}
