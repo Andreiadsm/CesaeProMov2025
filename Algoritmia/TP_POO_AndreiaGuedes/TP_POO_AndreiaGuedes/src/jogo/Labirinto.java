@@ -55,7 +55,7 @@ public class Labirinto {
         Vendedor vendedorInicial = Vendedor.criarVendedorInicial();
         entrada.setVendedor(vendedorInicial);
 
-        System.out.println("\n🧙 Esta é a tua única oportunidade de comprar antes da aventura!");
+        System.out.println("\nEsta é a tua única oportunidade de comprar antes da aventura!");
 
         // Adicionar ouro
         folhas.setOuroNaSala(15);
