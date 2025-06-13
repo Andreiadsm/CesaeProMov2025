@@ -51,15 +51,19 @@ public class Labirinto {
         gelada.adicionarInimigo(new NPC("Serpente de Gelo", 40, 8, 15));
         finalSala.adicionarInimigo(new NPC("Guardião do Cristal", 60, 12, 20));
 
-        // Adicionar vendedores
-        eletrica.setVendedor(Vendedor.criarVendedorInicial());
+        // Adicionar vendedor só na entrada
+        Vendedor vendedorInicial = Vendedor.criarVendedorInicial();
+        entrada.setVendedor(vendedorInicial);
 
-        // Adicionar ouro nas salas
+        System.out.println("\n🧙 Esta é a tua única oportunidade de comprar antes da aventura!");
+
+        // Adicionar ouro
         folhas.setOuroNaSala(15);
         chamas.setOuroNaSala(10);
 
         return entrada;
     }
+
     /**
      * Verifica e aplica o dano de armadilha presente na sala.
      * Caso o herói morra, imprime mensagem e retorna false.
@@ -164,7 +168,7 @@ private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanne
 
             boolean ataqueEspecialUsado = false;
 
-            for (int i = 0; i < 2 && inimigo.estaViva() && heroi.estaViva(); i++) {
+            for (int i = 0; i < 1 && inimigo.estaViva() && heroi.estaViva(); i++) {
                 System.out.println("Queres usar o ataque especial? [s/n]");
                 if (!ataqueEspecialUsado && scanner.next().equalsIgnoreCase("s")) {
                     int danoEspecial = heroi.getArmaPrincipal().getAtaqueEspecial() + heroi.getForca();
@@ -204,6 +208,10 @@ private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanne
      */
     public static void iniciarLabirinto(Heroi heroi, Sala salaAtual) {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nAviso importante:");
+        System.out.println(" Esta é a tua única oportunidade de visitar a loja.");
+        System.out.println("Depois de saíres da sala de entrada, não haverá mais vendedores!");
 
         while (true) {
             System.out.println("\nEntraste na sala: " + salaAtual.getNome());

@@ -18,7 +18,6 @@ public class Pocao extends Consumivel {
         this.vidaACurar = vidaACurar;
         this.aumentoForca = aumentoForca;
 
-        // Aproveita o método já disponível na superclasse
         for (TipoHeroi tipo : heroisPermitidos) {
             this.adicionarHeroiPermitido(tipo);
         }

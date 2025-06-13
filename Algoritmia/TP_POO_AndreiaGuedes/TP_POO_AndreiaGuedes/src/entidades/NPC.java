@@ -45,7 +45,7 @@ public class NPC extends Entidade {
      * Mostra os detalhes do NPC (nome, vida, força, ouro).
      */
     @Override
-    public void mostrarDetalhes() {
+    public void exibirDetalhes() {
         System.out.println("INIMIGO: " + this.getNome());
         System.out.println("Vida: " + this.getVidaAtual() + "/" + this.getVidaMax());
         System.out.println("Força: " + this.getForca());

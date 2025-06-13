@@ -40,61 +40,67 @@ public class Vendedor {
     }
 
     /**
-     * Cria um vendedor com um conjunto inicial de itens disponíveis para todos os tipos de heróis.
+     * Cria um vendedor com um conjunto inicial de 14 itens disponíveis.
+     * Inclui poções, consumíveis de combate e armas para diferentes tipos de heróis.
      *
      * @return Instância de Vendedor com itens pré-definidos.
      */
     public static Vendedor criarVendedorInicial() {
         Vendedor vendedor = new Vendedor();
 
+        // Tipos de heróis permitidos
         ArrayList<TipoHeroi> todos = new ArrayList<>();
         todos.add(TipoHeroi.FADA);
         todos.add(TipoHeroi.PRINCESA);
         todos.add(TipoHeroi.DRAGAO);
 
-        vendedor.adicionarItem(new Pocao("Poção Universal", 15, 25, 0, todos));
-        vendedor.adicionarItem(new Pocao("Poção de Vida Média", 30, 50, 0, todos));
-        vendedor.adicionarItem(new Pocao("Elixir de Força", 25, 0, 2, todos));
-        vendedor.adicionarItem(new Pocao("Poção de Força Grande", 35, 0, 5, todos));
-
-        vendedor.adicionarItem(new ConsumivelCombate("Bomba", 20, 12, todos));
-        vendedor.adicionarItem(new ConsumivelCombate("Granada", 18, 10, todos));
-
         ArrayList<TipoHeroi> soFada = new ArrayList<>();
         soFada.add(TipoHeroi.FADA);
-        vendedor.adicionarItem(new ArmaPrincipal("Varinha Brilhante", 30, 20, 35, soFada));
 
         ArrayList<TipoHeroi> soPrincesa = new ArrayList<>();
         soPrincesa.add(TipoHeroi.PRINCESA);
-        vendedor.adicionarItem(new ArmaPrincipal("Espada Real", 35, 25, 40, soPrincesa));
 
         ArrayList<TipoHeroi> soDragao = new ArrayList<>();
         soDragao.add(TipoHeroi.DRAGAO);
-        vendedor.adicionarItem(new ArmaPrincipal("Garras Flamejantes", 40, 30, 45, soDragao));
 
+        // Poções
+        vendedor.adicionarItem(new Pocao("Poção Universal", 15, 25, 0, todos));
+        vendedor.adicionarItem(new Pocao("Poção de Vida Média", 5, 50, 0, todos));
         vendedor.adicionarItem(new Pocao("Poção de Energia", 20, 15, 0, todos));
+        vendedor.adicionarItem(new Pocao("Elixir de Força", 20, 0, 2, todos));
+        vendedor.adicionarItem(new Pocao("Poção de Força Grande", 35, 0, 5, todos));
+        vendedor.adicionarItem(new Pocao("Elixir Supremo", 20, 60, 4, todos));
+
+        // Consumíveis de combate
+        vendedor.adicionarItem(new ConsumivelCombate("Bomba", 20, 12, todos));
+        vendedor.adicionarItem(new ConsumivelCombate("Granada", 18, 10, todos));
         vendedor.adicionarItem(new ConsumivelCombate("Raio Congelante", 22, 14, todos));
-        vendedor.adicionarItem(new Pocao("Elixir Supremo", 45, 60, 4, todos));
+        vendedor.adicionarItem(new ConsumivelCombate("Flecha Venenosa", 19, 11, todos));
+
+        // Armas principais
+        vendedor.adicionarItem(new ArmaPrincipal("Varinha Brilhante", 10, 20, 35, soFada));
+        vendedor.adicionarItem(new ArmaPrincipal("Espada Real", 10, 25, 40, soPrincesa));
+        vendedor.adicionarItem(new ArmaPrincipal("Garras Flamejantes", 15, 30, 45, soDragao));
+        vendedor.adicionarItem(new ArmaPrincipal("Lança de Luz", 12, 22, 36, soPrincesa));
 
         return vendedor;
     }
 
     /**
      * Inicia o processo de venda de itens ao herói.
-     * Filtra os itens disponíveis com base no tipo do herói, apresenta opções e realiza a compra.
+     * Filtra os itens compatíveis com o tipo do herói, apresenta até 5 opções e realiza a compra.
      *
-     * @param heroi Herói que quer comprar um item.
+     * @param heroi Herói que deseja comprar um item.
      */
     public void vender(Heroi heroi) {
         Scanner scanner = new Scanner(System.in);
 
-        // Filtra apenas itens compatíveis com o tipo do herói
+        // Filtrar apenas os itens compatíveis com o tipo do herói
         ArrayList<ItemHeroi> disponiveis = new ArrayList<>();
         for (ItemHeroi item : loja) {
             for (TipoHeroi tipo : item.getHeroisPermitidos()) {
                 if (tipo.equals(heroi.getTipoHeroi())) {
                     disponiveis.add(item);
-                    return;
                 }
             }
         }
@@ -104,15 +110,15 @@ public class Vendedor {
             return;
         }
 
-        // Mostrar até 5 itens
         int limite = Math.min(5, disponiveis.size());
-        System.out.println("\nLoja da Vendedora - Itens compatíveis:");
+        System.out.println("\n*-*-*-*-*-*-* Loja da Bruxa *-*-*-*-*-*-*");
+        System.out.println("Items compativéis:\n");
         for (int i = 0; i < limite; i++) {
             System.out.print("[" + i + "] ");
             disponiveis.get(i).mostrarDetalhes();
         }
 
-        System.out.println("Escolhe o número do item que queres comprar ou -1 para sair:");
+        System.out.println("Escolhe o número do item que queres comprar à Bruxa ou -1 para sair:");
         System.out.print("> ");
         int escolha = scanner.nextInt();
         scanner.nextLine();

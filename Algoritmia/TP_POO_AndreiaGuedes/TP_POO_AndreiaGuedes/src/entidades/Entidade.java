@@ -122,7 +122,7 @@ public abstract class Entidade {
      * Mostra os detalhes atuais da entidade na consola:
      * nome, vida atual/máxima e força.
      */
-    public void mostrarDetalhes() {
+    public void exibirDetalhes() {
         System.out.println(" Detalhes da Entidade:");
         System.out.println("Nome: " + this.nome);
         System.out.println("Vida: " + this.vidaAtual + "/" + this.vidaMax);
