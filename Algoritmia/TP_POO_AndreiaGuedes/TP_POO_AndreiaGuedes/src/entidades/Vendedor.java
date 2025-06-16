@@ -112,7 +112,7 @@ public class Vendedor {
 
         int limite = Math.min(5, disponiveis.size());
         System.out.println("\n*-*-*-*-*-*-* Loja da Bruxa *-*-*-*-*-*-*");
-        System.out.println("Items compativéis:\n");
+        System.out.println("Items compativeis:\n");
         for (int i = 0; i < limite; i++) {
             System.out.print("[" + i + "] ");
             disponiveis.get(i).mostrarDetalhes();

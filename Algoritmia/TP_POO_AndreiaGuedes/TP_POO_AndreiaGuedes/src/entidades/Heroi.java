@@ -112,9 +112,7 @@ public abstract class Heroi extends Entidade {
     public static Heroi criarPersonagem() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nLABIRINTO DOS PERIGOS");
-
-        System.out.println("Escolhe o tipo de herói com que queres jogar:");
+        System.out.println("\nEscolhe o tipo de herói com que queres jogar:\n");
         System.out.println("[1] Fada");
         System.out.println("[2] Princesa");
         System.out.println("[3] Dragão");

@@ -4,13 +4,13 @@ import entidades.*;
 import java.util.Scanner;
 
 /**
- * Classe principal do jogo. Contém o método main e o ciclo do jogo.
+ * Classe principal do jogo. Contém o metodo main e o ciclo do jogo.
  */
 public class Jogo {
 
     /**
      * Metodo principal que inicia o jogo.
-     * Cria o herói e chama o método que executa o jogo.
+     * Cria o herói e chama o metodo que executa o jogo.
      */
     public static void main(String[] args) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
@@ -38,7 +38,7 @@ public class Jogo {
     }
 
     /**
-     * Método que representa o jogo: movimentação pelo labirinto,
+     * Metodo que representa o jogo: movimentação pelo labirinto,
      * combate, encontros e decisões do herói.
      *
      * @param heroi Herói criado pelo jogador.

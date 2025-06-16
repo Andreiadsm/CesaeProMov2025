@@ -1,7 +1,5 @@
 package entidades;
 
-import itens.ArmaPrincipal;
-
 /**
  * Classe Princesa.
  * Representa uma heroína do tipo Princesa, com ataque reforçado e elegância em batalha.
@@ -27,7 +25,7 @@ public class Princesa extends Heroi {
 
         if (this.vidaAtual <= 0) {
             this.vidaAtual = 0;
-            System.out.println("Foste derrotada antes de revidar.");
+            System.out.println("Foste abatida antes de poderes reagir.");
             return;
         }
 
