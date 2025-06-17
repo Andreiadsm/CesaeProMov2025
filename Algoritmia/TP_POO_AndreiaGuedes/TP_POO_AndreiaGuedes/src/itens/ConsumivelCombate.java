@@ -44,13 +44,11 @@ public class ConsumivelCombate extends Consumivel {
         System.out.println("Usaste " + getNome() + " e causaste " + ataqueInstantaneo + " de dano!");
     }
 
-    public void usar(Heroi heroi) {
-        return;
-    }
+    public void usar(Heroi heroi) {}
 
     /**
      * Exibe todos os detalhes do consumível de combate no console.
-     * Mostra nome, preço, ataque instantâneo e os heróis que podem usá-lo.
+     * Mostra nome, preço, ataque instantâneo e os heróis que podem usá-lo
      */
     @Override
     public void mostrarDetalhes() {

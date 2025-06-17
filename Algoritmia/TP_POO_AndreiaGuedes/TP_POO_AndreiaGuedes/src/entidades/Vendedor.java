@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Vendedor {
 
-    private ArrayList<ItemHeroi> loja;
+    private final ArrayList<ItemHeroi> loja;
 
     /**
      * Construtor da classe Vendedor.
@@ -30,14 +30,6 @@ public class Vendedor {
         loja.add(item);
     }
 
-    /**
-     * Retorna a lista de itens disponíveis na loja.
-     *
-     * @return Lista de itens da loja.
-     */
-    public ArrayList<ItemHeroi> getLoja() {
-        return loja;
-    }
 
     /**
      * Cria um vendedor com um conjunto inicial de 14 itens disponíveis.

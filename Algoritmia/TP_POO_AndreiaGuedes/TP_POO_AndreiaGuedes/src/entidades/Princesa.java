@@ -1,5 +1,7 @@
 package entidades;
 
+import itens.Consumivel;
+
 /**
  * Classe Princesa.
  * Representa uma heroína do tipo Princesa, com ataque reforçado e elegância em batalha.
@@ -41,11 +43,22 @@ public class Princesa extends Heroi {
     }
 
     /**
-     * Mostra os detalhes da princesa (nome, vida, força, ouro).
+     * Mostra os detalhes da princesa (nome, vida, força, ouro e inventario).
      */
     @Override
     public void exibirDetalhes() {
-        System.out.println("Princesa: " + nome + ", Vida: " + vidaAtual + "/" + vidaMax
-                + ", Força: " + forca + ", Ouro: " + getOuro());
+        System.out.println("Princesa: " + getNome()
+                + ", Vida: " + getVidaAtual() + "/" + getVidaMax()
+                + ", Força: " + getForca()
+                + ", Ouro: " + getOuro());
+
+        if (getInventario().isEmpty()) {
+            System.out.println("Inventário: (vazio)");
+        } else {
+            System.out.println("Inventário:");
+            for (Consumivel item : getInventario()) {
+                System.out.println("- " + item.getNome());
+            }
+        }
     }
 }

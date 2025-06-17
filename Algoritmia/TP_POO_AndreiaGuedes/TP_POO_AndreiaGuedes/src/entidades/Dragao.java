@@ -1,5 +1,7 @@
 package entidades;
 
+import itens.Consumivel;
+
 /**
  * Representa um herói do tipo Dragão.
  * Este herói sofre dano reduzido ao ser atacado primeiro e depois contra-ataca.
@@ -34,11 +36,23 @@ public class Dragao extends Heroi {
         }
     }
 
+    /**
+     * Mostra os detalhes do Dragão (nome, vida, força, ouro e inventario).
+     */
     @Override
     public void exibirDetalhes() {
         System.out.println("Dragão: " + getNome()
                 + ", Vida: " + getVidaAtual() + "/" + getVidaMax()
                 + ", Força: " + getForca()
                 + ", Ouro: " + getOuro());
+
+        if (getInventario().isEmpty()) {
+            System.out.println("Inventário: (vazio)");
+        } else {
+            System.out.println("Inventário:");
+            for (Consumivel item : getInventario()) {
+                System.out.println("- " + item.getNome());
+            }
+        }
     }
 }

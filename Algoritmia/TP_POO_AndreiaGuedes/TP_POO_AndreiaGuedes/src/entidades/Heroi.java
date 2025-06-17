@@ -17,6 +17,7 @@ public abstract class Heroi extends Entidade {
     private int ouro;
     private ArmaPrincipal armaPrincipal;
     private ArrayList<Consumivel> inventario;
+    private boolean ataqueEspecialUsado = false;
 
     public Heroi(String nome, int vida, int forca, int ouroInicial, TipoHeroi tipo) {
         super(nome, vida, forca);
@@ -37,12 +38,22 @@ public abstract class Heroi extends Entidade {
             this.armaPrincipal = new ArmaPrincipal("Garras Pequenas", 7, 3, 4, permitido);
         }
     }
+
+
+    public boolean isAtaqueEspecialUsado() {
+        return ataqueEspecialUsado;
+    }
+
+    public void setAtaqueEspecialUsado(boolean usado) {
+        this.ataqueEspecialUsado = usado;
+    }
     /**
      * @return O tipo do herói.
      */
     public TipoHeroi getTipoHeroi() {
         return this.tipo;
     }
+
     /**
      * Define o ouro atual.
      * @param ouro Quantidade de ouro.
@@ -110,6 +121,7 @@ public abstract class Heroi extends Entidade {
      * @return Uma instância de Fada, Princesa ou Dragão.
      */
     public static Heroi criarPersonagem() {
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\nEscolhe o tipo de herói com que queres jogar:\n");
@@ -132,7 +144,7 @@ public abstract class Heroi extends Entidade {
             nomeClasse = "Dragão";
         }
 
-        System.out.println("Escolheste jogar com uma " + nomeClasse + "!");
+        System.out.println("Escolheste jogar com o herói " + nomeClasse + "!");
 
         System.out.println("\nEscolhe a dificuldade:");
         System.out.println("[1] Fácil");

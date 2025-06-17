@@ -51,9 +51,12 @@ public class Labirinto {
         gelada.adicionarInimigo(new NPC("Serpente de Gelo", 40, 8, 15));
         finalSala.adicionarInimigo(new NPC("Guardião do Cristal", 60, 12, 20));
 
-        // Adicionar vendedor só na entrada
+        // Adicionar vendedor na entrada e na sala sombria
         Vendedor vendedorInicial = Vendedor.criarVendedorInicial();
         entrada.setVendedor(vendedorInicial);
+
+        Vendedor segundoVendedor = Vendedor.criarVendedorInicial();
+        sombria.setVendedor(segundoVendedor);
 
         // Adicionar ouro
         folhas.setOuroNaSala(15);
@@ -117,7 +120,7 @@ public class Labirinto {
                 }
                 System.out.print("Opção escolhida: ");
                 int opcao = scanner.nextInt();
-                scanner.nextLine(); // limpar buffer
+                scanner.nextLine();
                 if (opcao >= 0 && opcao < pocoes.size()) {
                     Pocao p = pocoes.get(opcao);
                     p.usar(heroi);
@@ -136,7 +139,7 @@ public class Labirinto {
      * @param scanner Scanner para interação com o jogador
      * @return false se o herói morrer, true se vencer
      */
-private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanner) {
+    private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanner) {
         for (NPC inimigo : salaAtual.getInimigos()) {
             System.out.println("Inimigo encontrado: " + inimigo.getNome());
 
@@ -164,15 +167,18 @@ private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanne
                 }
             }
 
-            boolean ataqueEspecialUsado = false;
-
-            for (int i = 0; i < 1 && inimigo.estaViva() && heroi.estaViva(); i++) {
-                System.out.println("Queres usar o ataque especial? [s/n]");
-                if (!ataqueEspecialUsado && scanner.next().equalsIgnoreCase("s")) {
-                    int danoEspecial = heroi.getArmaPrincipal().getAtaqueEspecial() + heroi.getForca();
-                    inimigo.receberDano(danoEspecial);
-                    System.out.println("Usaste ataque especial e causaste " + danoEspecial + " de dano!");
-                    ataqueEspecialUsado = true;
+            // Combate
+            while (inimigo.estaViva() && heroi.estaViva()) {
+                if (!heroi.isAtaqueEspecialUsado()) {
+                    System.out.println("Queres usar o ataque especial? [s/n]");
+                    if (scanner.next().equalsIgnoreCase("s")) {
+                        int danoEspecial = heroi.getArmaPrincipal().getAtaqueEspecial() + heroi.getForca();
+                        inimigo.receberDano(danoEspecial);
+                        System.out.println("Usaste ataque especial e causaste " + danoEspecial + " de dano!");
+                        heroi.setAtaqueEspecialUsado(true); // Marca como usado
+                    } else {
+                        heroi.atacar(inimigo);
+                    }
                 } else {
                     heroi.atacar(inimigo);
                 }
@@ -198,7 +204,7 @@ private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanne
 
     /**
      * Inicia a exploração do labirinto a partir de uma sala inicial.
-     * O herói encontra armadilhas, vendedor, combates, e escolhe o caminho a seguir.
+     * O herói encontra armadilhas, vendedores, combates, e escolhe o caminho a seguir.
      * O jogo termina se o herói morrer ou derrotar inimigos e chegar à sala final, vencendo assim o jogo.
      *
      * @param heroi      Herói jogável que explora o labirinto.
@@ -207,9 +213,8 @@ private static boolean tratarCombate(Heroi heroi, Sala salaAtual, Scanner scanne
     public static void iniciarLabirinto(Heroi heroi, Sala salaAtual) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("\nAviso importante:");
-        System.out.println(" Esta é a tua única oportunidade de visitar a loja.");
-        System.out.println("Depois de saíres da sala de entrada, não haverá mais vendedores!");
+        System.out.println(" Não terás muitas mais oportunidades de comprar itens valiosos para a tua jornada!");
+        System.out.println("Aproveita bem!");
 
         while (true) {
             System.out.println("\nEntraste na sala: " + salaAtual.getNome());

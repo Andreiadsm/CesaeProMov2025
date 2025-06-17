@@ -14,7 +14,7 @@ public abstract class Consumivel extends ItemHeroi {
     }
 
     /**
-     * Método abstrato que define o efeito do consumível quando usado por um herói.
+     * Metodo abstrato que define o efeito do consumível quando usado por um herói.
      * Cada subclasse (como uma poção) implementa este comportamento específico.
      */
     public abstract void usar(Heroi heroi, NPC inimigo);

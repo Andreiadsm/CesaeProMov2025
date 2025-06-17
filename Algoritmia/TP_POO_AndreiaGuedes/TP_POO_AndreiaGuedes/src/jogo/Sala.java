@@ -3,7 +3,6 @@ package jogo;
 import entidades.NPC;
 import entidades.Vendedor;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * Representa uma sala no labirinto do jogo.
@@ -26,8 +25,8 @@ public class Sala {
      */
     public Sala(String nome) {
         this.nome = nome;
-        this.ligacoes = new ArrayList<>();
-        this.inimigos = new ArrayList<>();
+        this.ligacoes = new ArrayList<Sala>();
+        this.inimigos = new ArrayList<NPC>();
         this.vendedor = new Vendedor();
         this.temVendedor = false;
         this.ouroNaSala = 0;
