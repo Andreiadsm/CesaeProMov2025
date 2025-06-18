@@ -25,8 +25,8 @@ public class Logger {
     }
 
     public void logDaMensagem (String mensagem) throws IOException{
-        FileWriter fw = new FileWriter(fileName, true);
-        fw.append("log xpto..");
+        FileWriter fw = new FileWriter(this.fileName, true);
+        fw.append(mensagem +"\n");
         fw.close();
     }
 }

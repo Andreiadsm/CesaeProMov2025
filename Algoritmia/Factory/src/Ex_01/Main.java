@@ -1,0 +1,62 @@
+package Ex_01;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main (String [] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        ArrayList<Produto> stock = new ArrayList<>();
+
+        int opcao;
+
+        do{
+            System.out.println("\n\n***** Programa de Gestão de Produtos *****");
+            System.out.println("1. Novo Produto");
+            System.out.println("2. Vizualizar Produtos");
+
+            System.out.println("Insira a opção: ");
+            opcao = input.nextInt();
+
+            switch (opcao){
+                case 1:
+                    System.out.println("\nNovo Produto");
+
+                    //tipo produto
+                    System.out.println("Tipo Produto (Livro | Eletronico | Roupa | Alimento): ");
+                    input.nextLine();
+                    String tipoProdutoInput = input.nextLine();
+
+                    //descricao
+                    System.out.print("Descrição: ");
+                    String descricaoProdutoInput = input.nextLine();
+
+                    //preco
+                    System.out.println("Preço: ");
+                    double precoProdutoInput = input.nextDouble();
+
+                    //criar o produto
+                    Produto produtoNovo = FabricaProdutos.criarProduto(tipoProdutoInput, descricaoProdutoInput, precoProdutoInput);
+
+                    //adicionar ao array
+                    stock.add(produtoNovo);
+
+                    break;
+
+                case 2:
+                    System.out.println("\nVisualizar Produto");
+
+                    for (Produto produtoAtual : stock){
+                        produtoAtual.exibirInformacoes();
+                    }
+
+                    break;
+
+                default:
+                    System.out.println("\nOpção Inválida");
+            }
+        } while (opcao !=0);
+    }
+}
