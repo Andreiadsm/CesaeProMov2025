@@ -4,11 +4,11 @@ public class FabricaTacos {
     public static Taco criarTaco(String tipoTaco, String nome, double preco){
 
         switch (tipoTaco){
-            case "TacoCarne":
+            case "Carne":
                 return new TacoCarne(nome, preco);
-            case "TacoFrango":
+            case "Frango":
                 return new TacoFrango(nome, preco);
-            case "Taco Veggie":
+            case "Vegetariano":
                 return new TacoVeggie(nome, preco);
             default:
                 throw new IllegalArgumentException("Tipo de taco não reconhecido");
